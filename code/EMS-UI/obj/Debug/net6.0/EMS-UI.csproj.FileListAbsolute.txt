@@ -1,0 +1,15 @@
+C:\Training\p1-aman-shankar\code\EMS-UI\bin\Debug\net6.0\EMS-UI.exe
+C:\Training\p1-aman-shankar\code\EMS-UI\bin\Debug\net6.0\EMS-UI.deps.json
+C:\Training\p1-aman-shankar\code\EMS-UI\bin\Debug\net6.0\EMS-UI.runtimeconfig.json
+C:\Training\p1-aman-shankar\code\EMS-UI\bin\Debug\net6.0\EMS-UI.dll
+C:\Training\p1-aman-shankar\code\EMS-UI\bin\Debug\net6.0\EMS-UI.pdb
+C:\Training\p1-aman-shankar\code\EMS-UI\obj\Debug\net6.0\EMS-UI.csproj.AssemblyReference.cache
+C:\Training\p1-aman-shankar\code\EMS-UI\obj\Debug\net6.0\EMS-UI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Training\p1-aman-shankar\code\EMS-UI\obj\Debug\net6.0\EMS-UI.AssemblyInfoInputs.cache
+C:\Training\p1-aman-shankar\code\EMS-UI\obj\Debug\net6.0\EMS-UI.AssemblyInfo.cs
+C:\Training\p1-aman-shankar\code\EMS-UI\obj\Debug\net6.0\EMS-UI.csproj.CoreCompileInputs.cache
+C:\Training\p1-aman-shankar\code\EMS-UI\obj\Debug\net6.0\EMS-UI.dll
+C:\Training\p1-aman-shankar\code\EMS-UI\obj\Debug\net6.0\refint\EMS-UI.dll
+C:\Training\p1-aman-shankar\code\EMS-UI\obj\Debug\net6.0\EMS-UI.pdb
+C:\Training\p1-aman-shankar\code\EMS-UI\obj\Debug\net6.0\EMS-UI.genruntimeconfig.cache
+C:\Training\p1-aman-shankar\code\EMS-UI\obj\Debug\net6.0\ref\EMS-UI.dll
