@@ -1,0 +1,12 @@
+D:\Revature\Project1\DataLayer\bin\Debug\net6.0\DataLayer.deps.json
+D:\Revature\Project1\DataLayer\bin\Debug\net6.0\DataLayer.dll
+D:\Revature\Project1\DataLayer\bin\Debug\net6.0\DataLayer.pdb
+D:\Revature\Project1\DataLayer\obj\Debug\net6.0\DataLayer.csproj.AssemblyReference.cache
+D:\Revature\Project1\DataLayer\obj\Debug\net6.0\DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Revature\Project1\DataLayer\obj\Debug\net6.0\DataLayer.AssemblyInfoInputs.cache
+D:\Revature\Project1\DataLayer\obj\Debug\net6.0\DataLayer.AssemblyInfo.cs
+D:\Revature\Project1\DataLayer\obj\Debug\net6.0\DataLayer.csproj.CoreCompileInputs.cache
+D:\Revature\Project1\DataLayer\obj\Debug\net6.0\DataLayer.dll
+D:\Revature\Project1\DataLayer\obj\Debug\net6.0\refint\DataLayer.dll
+D:\Revature\Project1\DataLayer\obj\Debug\net6.0\DataLayer.pdb
+D:\Revature\Project1\DataLayer\obj\Debug\net6.0\ref\DataLayer.dll

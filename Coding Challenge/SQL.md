@@ -29,6 +29,8 @@ CREATE TABLE [EmpDetails](
 
 SELECT * from [EmpDetails];
 
+
+
 INSERT INTO [Department]
 VALUES('1','Software','Chennai'),
 ('2','Sales','Noida'),
@@ -64,7 +66,7 @@ SELECT * from [EmpDetails];
 
 SELECT * FROM Employee;
 
---add department Marketing
+--add department Marketing a
 
 INSERT INTO [Department] 
 VALUES ('6','Marketing','Bihar');
