@@ -53,7 +53,7 @@ namespace UI_Layer
                 Console.WriteLine("About_Me : " + user.about_me);
             }
             Console.WriteLine("----------------------\n");
-            Console.WriteLine("Edit Your Personal Details:- \n");
+            Console.WriteLine("Add And Edit Your Personal Details:- \n");
 
             Console.WriteLine("[1] First-Name : " + user.first_name);   
             Console.WriteLine("[2] Middle-Name : " + user.middle_name);
@@ -66,8 +66,6 @@ namespace UI_Layer
             Console.WriteLine("[9] Delete ");
             Console.WriteLine("[10] Save Details ");
             Console.WriteLine("[0] Back");
-
-
         }
 
         public string UserOption()
@@ -85,20 +83,6 @@ namespace UI_Layer
             Validation newValidation = new(cs);
             switch (userInput)
             {
-                case "14":
-                    return "SeePersonalDetails";
-                case "12":
-                    Console.WriteLine("Your User-Id : ");
-                    user.user_id = Console.ReadLine();
-                    return "Personal_Details";
-                case "13":
-                    Console.WriteLine("Your Password : ");
-                    user.password = Console.ReadLine();
-                    return "Personal_Details";
-                case "11":
-                    Console.WriteLine("Your Email_Id : ");
-                    user.Email = Console.ReadLine();
-                    return "Personal_Details";
                 case "1":
                     Console.WriteLine("Your First-name : ");
                     user.first_name = Console.ReadLine();
@@ -156,8 +140,12 @@ namespace UI_Layer
                     Console.ReadKey();
                     return "AddAndEditUserDetails";
                 case "9":
+                    Console.WriteLine(id);
+                    Console.WriteLine("Press Enter For Confirmation ");
+                    Console.ReadLine();
                     sRepo.DeleteUser(id);
-                    Console.WriteLine("Table is deleted");
+                    Console.WriteLine("Parent Table Is Deleted. So Child Tables Are Also Deleted ! ");
+                    Console.ReadKey();
                     return "SignUp";
                 case "0":
                     return "AddAndEditUserDetails";

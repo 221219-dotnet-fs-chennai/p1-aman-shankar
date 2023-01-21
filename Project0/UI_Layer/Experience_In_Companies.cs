@@ -27,16 +27,18 @@ namespace UI_Layer
             }
             else
             {
-                Console.WriteLine("No Company_Details Found !");
+                Console.WriteLine("No Company_Details Found.Please Add Company !");
             }
-            Console.WriteLine("----------------------\n");
+            Console.WriteLine("----------------------------------\n");
 
-            Console.WriteLine("Edit Your Experience_In_Companies Details:- \n");
-            Console.WriteLine("[1] Company_name : " + newUs.company_name );
-            Console.WriteLine("[2] Industry : " + newUs.industry );
-            Console.WriteLine("[3] Duration : " + newUs.duration );
-            Console.WriteLine("[4] Save ");
-            Console.WriteLine("[5] Delete ");
+            Console.WriteLine("Add , Edit ANd Update Your Experience_In_Companies Details:- \n");
+            Console.WriteLine("[1] Company_Id : " + newUs.company_id);
+            Console.WriteLine("[2] Company_name : " + newUs.company_name );
+            Console.WriteLine("[3] Industry : " + newUs.industry );
+            Console.WriteLine("[4] Duration : " + newUs.duration );
+            Console.WriteLine("[5] Save ");
+            Console.WriteLine("[6] Update ");
+            Console.WriteLine("[7] Delete ");
             Console.WriteLine("[0] Back \n");
         }
 
@@ -55,25 +57,47 @@ namespace UI_Layer
             switch (userInput)
             {
                 case "1":
+                    Console.WriteLine("Please Enter Your Education_Id");
+                    newUs.company_id = id;
+                    return "Experience_In_Companies";
+                case "2":
                     Console.WriteLine("Please Enter Your Company-Name : ");
                     newUs.company_name = Console.ReadLine();
                     return "Experience_In_Companies";
-                case "2":
+                case "3":
                     Console.WriteLine("Please Enter Your Industry Name : ");
                     newUs.industry = Console.ReadLine();
                     return "Experience_In_Companies";
-                case "3":
+                case "4":
                     Console.WriteLine("Please Enter The Duration For Taking This Degree : ");
                     newUs.duration = Console.ReadLine();
                     return "Experience_In_Companies";
-                case "4":
-                    sRepo.AddCompany(newUs);
-                    Console.WriteLine("Saved Company_Details ");
-                    return "AddAndEditUserDetails";
                 case "5":
-                    sRepo.DeleteCompany(id);
-                    Console.WriteLine("Table is deleted");
-                    return "Personal_Details";
+                    sRepo.AddCompany(newUs);
+                    Console.WriteLine("Saved Company_Details ! Press Enter ");
+                    Console.ReadKey();
+                    return "AddAndEditUserDetails";
+                case "7":
+                    Console.WriteLine("Please Enter Which Company You Want To Delete ");
+                    string del = Console.ReadLine();
+                    for (int i = 0; i < newUs.company_name.Length; i++)
+                    {
+                        if (newUs.company_name == del)
+                        {
+                            Console.WriteLine(del);
+                            Console.WriteLine("Press Enter For Confirmation ");
+                            Console.ReadLine();
+                            sRepo.DeleteSkills(del);
+                            Console.WriteLine("Deleted Successfully !");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You Don't Have This Education Yet ! Press Enter ");
+                            Console.ReadLine();
+                            break;
+                        }
+                    }
+                    return "Experience_In_Companies";
                 case "0":
                     return "AddAndEditUserDetails";
                 default:

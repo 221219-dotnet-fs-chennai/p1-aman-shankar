@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\DataLayer",
+    "\\UI_Layer"
   ],
-  "SelectedNode": "\\Project1.sln",
+  "SelectedNode": "\\DataLayer\\SQLRepo.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -6,7 +6,7 @@ namespace UI_Layer
 {
     internal class SignUp : IMenu
     {
-        public static User newuser = new User();
+        internal static User newuser = new User();
         private static string cs = $"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;";
         public static SQLRepo srepo = new SQLRepo(cs);
 

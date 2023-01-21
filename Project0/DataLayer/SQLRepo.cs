@@ -19,7 +19,7 @@ namespace DataLayer
         public List<User> GetUser(string user_id)
         {
             List<User> users = new List<User>();
-            using SqlConnection con = new SqlConnection(conStr);
+            using SqlConnection con = new SqlConnection($"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;");
             con.Open();
             string query = $"SELECT [first_name],[middle_name],[last_name],[gender],[pincode],[website],[mobile_number],[about_me] FROM [User] WHERE [user_id] = '{user_id}';";
             SqlCommand command = new SqlCommand(query, con);
@@ -45,7 +45,7 @@ namespace DataLayer
             List<Skills> skills = new List<Skills>();
             using SqlConnection con = new SqlConnection($"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;");
             con.Open();
-            string query = $"SELECT [skill_name] FROM [Skills] WHERE [skill_id] = {skill_id}";
+            string query = $"SELECT [skill_name] FROM [Skills] WHERE [skill_id] = '{skill_id}' ;";
             SqlCommand command = new SqlCommand(query, con);
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
@@ -61,9 +61,9 @@ namespace DataLayer
         {
             List<Education> education_details = new
                 ();
-            using SqlConnection con = new SqlConnection("$\"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;\";");
+            using SqlConnection con = new SqlConnection($"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;");
             con.Open();
-            string query = $"SELECT [education_name],[institute_name],[grade],[duration] FROM [Education_Details] WHERE [education_id] = {education_id};";
+            string query = $"SELECT [education_name],[institute_name],[grade],[duration] FROM [Education_Details] WHERE [education_id] = '{education_id}';";
             SqlCommand command = new SqlCommand(query, con);
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
@@ -84,7 +84,7 @@ namespace DataLayer
             List<Company> company = new();
             using SqlConnection con = new SqlConnection($"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;");
             con.Open();
-            string query = $"SELECT [company_id],[company_name],[industry],[duration] FROM [Company] WHERE [company_id] = {company_id};";
+            string query = $"SELECT [company_id],[company_name],[industry],[duration] FROM [Company] WHERE [company_id] = '{company_id}';";
             SqlCommand command = new SqlCommand(query, con);
             // for executing
             SqlDataReader reader = command.ExecuteReader();
@@ -101,7 +101,7 @@ namespace DataLayer
             return company;
         }
 
-        //Inserting And Updating ...........................................................
+        //Inserting And Updating In UserTable ...........................................................
 
         public void AddSignUp(User user)
         {
@@ -117,7 +117,7 @@ namespace DataLayer
 
         public User AddUser(User user, string id)   
         {
-            string query = $"UPDATE [User] SWT [first_name] = @first_name , [middle_name] = @middle_name , [last_name] = @last_name , [gender] = @gender , [pincode] =  @pincode , [website] =  @website , [mobile_number] =  @mobile_number , [about_me] = @about_me  WHERE [user_id] = '{id}';";
+            string query = $"UPDATE [User] SET [first_name] = @first_name , [middle_name] = @middle_name , [last_name] = @last_name , [gender] = @gender , [pincode] =  @pincode , [website] =  @website , [mobile_number] =  @mobile_number , [about_me] = @about_me  WHERE [user_id] = '{id}';";
             using SqlConnection con = new SqlConnection($"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;");
             con.Open();
             SqlCommand command = new SqlCommand(query, con);
@@ -133,26 +133,25 @@ namespace DataLayer
             Console.WriteLine("User_Details Added ! ");
             return user;
         }
+
+        //Insertion In Skills ,Education And Company....................................................
         public void AddSkills(Skills skills)
         {
-            while(skills != null)
-            {
-                string query = "INSERT INTO [Skills]([skill_id], [skill_name]) VALUES (@id, @skill_name )";
+                string query = "INSERT INTO [Skills] ([skill_id] ,[skill_name]) VALUES (@id , @skill_name );";
                 using SqlConnection con = new SqlConnection($"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;");
                 con.Open();
                 SqlCommand command = new SqlCommand(query, con);
                 command.Parameters.AddWithValue("@id", skills.skill_id);
                 command.Parameters.AddWithValue("@skill_name", skills.skill_name);
                 command.ExecuteNonQuery();
-            }
-            
         }
         public void AddEducation(Education education_details)
         {
-            string query = "INSERT INTO [Education_Details]([education_name],[institute_name],[grade],[duration]) VALUES (@education_name,@institute_name,@grade,@duration)";
+            string query = "INSERT INTO [Education_Details] ([education_id],[education_name] ,[institute_name] ,[grade] ,[duration]) VALUES (@education_id, @education_name, @institute_name, @grade,@duration) ;";
             using SqlConnection con = new SqlConnection($"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;");
-            SqlCommand command = new SqlCommand(query, con);
             con.Open();
+            SqlCommand command = new SqlCommand(query, con);
+            command.Parameters.AddWithValue("@education_id", education_details.education_id);
             command.Parameters.AddWithValue("@education_name", education_details.education_name);
             command.Parameters.AddWithValue("@institute_name", education_details.institute_name);
             command.Parameters.AddWithValue("@grade", education_details.grade);
@@ -161,11 +160,11 @@ namespace DataLayer
         }
         public void AddCompany(Company company)
         {
-            string query = "INSERT INTO [Company]([company_name],[industry],[duration]) VALUES (@company_id,@company_name,@industry,@duration)";
+            string query = "INSERT INTO [Company]([company_id] ,[company_name], [industry], [duration]) VALUES (@company_id, @company_name, @industry, @duration) ;";
             using SqlConnection con = new SqlConnection($"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;");
-            SqlCommand command = new SqlCommand(query, con);
             con.Open();
-            //command.Parameters.AddWithValue("@company_id", company.company_id);
+            SqlCommand command = new SqlCommand(query, con);
+            command.Parameters.AddWithValue("@company_id", company.company_id);
             command.Parameters.AddWithValue("@company_name", company.company_name);
             command.Parameters.AddWithValue("@industry", company.industry);
             command.Parameters.AddWithValue("@duration", company.duration);
@@ -181,13 +180,14 @@ namespace DataLayer
             SqlCommand command = new SqlCommand(query, con);
             command.ExecuteNonQuery();
         }
-        public void DeleteSkills(string skill)
+        public string DeleteSkills(string skills)
         {
-            string query = $"DELETE FROM [User] WHERE [skill_id] = {skill}";
+            string query = $"DELETE FROM [User] WHERE [skill_id] = {skills}";
             using SqlConnection con = new SqlConnection($"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;");
             con.Open();
             SqlCommand command = new SqlCommand(query, con);
             command.ExecuteNonQuery();
+            return skills;
         }
         public void DeleteEducation(string edu)
         {
@@ -217,9 +217,9 @@ namespace DataLayer
             command.ExecuteNonQuery();
         }*/
         
-        public void UpdateSkills(Skills newS, Skills oldS, Skills id)
+        public void UpdateSkills(Skills newS, Skills oldS)
         {
-            string query = $"Update [Skills] SET [skill_name] = '{newS}' WHERE [skill_name] = '{oldS}' AND [skill_id] = {id};";
+            string query = $"Update [Skills] SET [skill_name] = '{newS}' WHERE [skill_name] = '{oldS}';";
             using SqlConnection con = new SqlConnection($"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;");
             con.Open();
             SqlCommand command = new SqlCommand(query, con);

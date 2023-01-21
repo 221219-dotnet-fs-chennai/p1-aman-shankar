@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace UI_Layer
 {
-    internal class Education_Details : SignUp , IMenu
+    internal class Education_Details : IMenu
     {
         private static Education ed_Details= new Education();
         private static string cs = $"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;";
@@ -30,14 +30,16 @@ namespace UI_Layer
             {
                 Console.WriteLine("No Education_Details Found ! ");
             }
-            Console.WriteLine("----------------------\n");
+            Console.WriteLine("----------------------------------\n");
 
-            Console.WriteLine("Edit Your Education Details \n");
-            Console.WriteLine("[1] Education_Name : " + ed_Details.education_name);
-            Console.WriteLine("[2] Institute_Name : " + ed_Details.institute_name);
-            Console.WriteLine("[3] Grade : " + ed_Details.grade);
-            Console.WriteLine("[4] Duration : " + ed_Details.duration);
-            Console.WriteLine("[5] Save :");
+            Console.WriteLine("Add , Edit ANd Update Your Education Details \n");
+            Console.WriteLine("[1] Education_Id : " + ed_Details.education_id);
+            Console.WriteLine("[2] Education_Name : " + ed_Details.education_name);
+            Console.WriteLine("[3] Institute_Name : " + ed_Details.institute_name);
+            Console.WriteLine("[4] Grade : " + ed_Details.grade);
+            Console.WriteLine("[5] Duration : " + ed_Details.duration);
+            Console.WriteLine("[6] Save :");
+            Console.WriteLine("[7] Delete ");
             Console.WriteLine("[0] Back:- \n");
         }
 
@@ -56,25 +58,51 @@ namespace UI_Layer
             switch (userInput)
             {
                 case "1":
+                    Console.WriteLine("Please Enter Your Education_Id");
+                    ed_Details.education_id = id;
+                    return "Education_Details";
+                case "2":
                     Console.WriteLine("Please Enter Your Education-Name : ");
                     ed_Details.education_name = Console.ReadLine();
                     return "Education_Details";
-                case "2":
+                case "3":
                     Console.WriteLine("Please Enter Your Institute Name : ");
                     ed_Details.institute_name = Console.ReadLine();
                     return "Education_Details";
-                case "3":
+                case "4":
                     Console.WriteLine("Please Enter Your Grade : ");
                     ed_Details.grade = Console.ReadLine();
                     return "Education_Details";
-                case "4":
+                case "5":
                     Console.WriteLine("Please Enter The Duration For Taking This Degree : ");
                     ed_Details.duration = Console.ReadLine();
                     return "Education_Details";
-                case "5":
+                case "6":
                     sRepo.AddEducation(ed_Details);
-                    Console.WriteLine("Saved Education_Details ");
+                    Console.WriteLine("Saved Education_Details ! Press Enter ");
+                    Console.ReadKey();
                     return "AddAndEditUserDetails";
+                case "7":
+                    Console.WriteLine("Please Enter Which Education-Detail You Want To Delete ");
+                    string del = Console.ReadLine();
+                    for (int i = 0; i < ed_Details.education_name.Length; i++)
+                    {
+                        if (ed_Details.education_name == del)
+                        {
+                            Console.WriteLine(del);
+                            Console.WriteLine("Press Enter For Confirmation ");
+                            Console.ReadLine();
+                            sRepo.DeleteSkills(del);
+                            Console.WriteLine("Deleted Successfully !");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You Don't Have This Id Yet ! Press Enter ");
+                            Console.ReadLine();
+                            break;
+                        }
+                    }
+                    return "Education_Details";
                 case "0":
                     return "AddAndEditUserDetails";
                 default:
