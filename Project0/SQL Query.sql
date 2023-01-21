@@ -48,9 +48,9 @@ SELECT [education_id],[education_name],[institute_name],[grade],[duration] FROM 
 --Inserting Data Into Tables :-
 --Inserting Data Into [User] Table
 INSERT INTO [User]([user_id],[first_name],[middle_name],[last_name],[gender],[pincode],[Email],[website],[mobile_number],[password],[about_me])
-Values('111','Chuka','Venkat','Teza','Others',564721,'venkat123@gmail.com','http:/chukka@google.com',9876543210,'venkat123','I am a quick learner.'),
-('222','Arshad','Ahmed','Khan','Female',564721,'arshad123@gmail.com','http:arshad/@google.com',9876543211,'arshad123','I am passinate about my work.'),
-('333','Rizwan','','Ahmed','Male',564723,'rizwan123@gmail.com','http:/rizwan@google.com',9876543212,'rizwan123','I am intrested in C#.');
+Values('111','Chuka','Venkat','Teza','Others',564721,'venkat123@gmail.com','http:/chukka@google.com',9876543210,'Venkat123','I am a quick learner.'),
+('222','Arshad','Ahmed','Khan','Female',564721,'arshad123@gmail.com','http:arshad/@google.com',9876543211,'Arshad123','I am passinate about my work.'),
+('333','Rizwan','','Ahmed','Male',564723,'rizwan123@gmail.com','http:/rizwan@google.com',9876543212,'Rizwan123','I am intrested in C#.');
 
 --Inserting Data Into [Skills] Table
 INSERT INTO [Skills]([skill_id],[skill_name])
@@ -87,13 +87,7 @@ SELECT * FROM [Skills];
 SELECT * FROM [Company];
 SELECT * FROM [Education_Details];
 
--- For Droping the tables
-drop table [User]
-drop table [Skills]
-drop table [Company]
-drop table [Education_Details]
-
---Inserting One Detail
+--Inserting 
 SELECT [user_id],[first_name],[middle_name],[last_name],[gender],[pincode],[Email],[website],[mobile_number],[password],[about_me] FROM [User] WHERE [user_id] = 111;
 
 -- Modify
@@ -105,5 +99,4 @@ Update [Company] SET [company_name] = 'STL' WHERE [company_name] = 'Revature' AN
 SELECT [first_name],[middle_name],[last_name],[gender],[pincode],[website],[mobile_number],[about_me] FROM [User] WHERE [user_id] = 111;
 
 --Deleting
-DELETE FROM [User] WHERE [gender] = 'Male';
 DELETE FROM [User] WHERE [user_id] = '999';

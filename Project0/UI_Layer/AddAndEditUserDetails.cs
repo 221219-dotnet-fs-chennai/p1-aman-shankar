@@ -5,11 +5,6 @@ namespace UI_Layer
 {
     internal class AddAndEditUserDetails : IMenu
     {
-        /*
-        private static User newUser = new User();
-        private static string cs = File.ReadAllText("D:/Revature/Project1/UI_Layer/ConnectionString.txt");
-        ISqlRepo newSqlRepo = new SqlRepo(cs);
-        */
         bool repeat = true;
         IMenu menu = new Menu();
         public void Display()

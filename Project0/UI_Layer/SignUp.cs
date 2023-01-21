@@ -7,7 +7,7 @@ namespace UI_Layer
     internal class SignUp : IMenu
     {
         public static User newuser = new User();
-        private static string cs = "Server=tcp:aman-shankar-db.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=Aman;Password=Ananta123@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        private static string cs = $"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;";
         public static SQLRepo srepo = new SQLRepo(cs);
 
         public void Display()

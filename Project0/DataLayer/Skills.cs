@@ -19,7 +19,7 @@ namespace DataLayer
         }
         public override string ToString()
         {
-            return $"{skill_id}, {skill_name}";
+            return $"{skill_id} {skill_name}";
         }
         private readonly string connectionString;
         // Parameterized Constructor

@@ -9,7 +9,7 @@ namespace UI_Layer
 {
     internal class Experience_In_Companies : IMenu
     {
-        private static string cs = "Server=tcp:aman-shankar-db.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=Aman;Password=Ananta123@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        private static string cs = $"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;";
         private static SQLRepo sRepo = new SQLRepo(cs);
         public static Company newUs = new Company();
         public void Display()
@@ -36,11 +36,21 @@ namespace UI_Layer
             Console.WriteLine("[2] Industry : " + newUs.industry );
             Console.WriteLine("[3] Duration : " + newUs.duration );
             Console.WriteLine("[4] Save ");
+            Console.WriteLine("[5] Delete ");
             Console.WriteLine("[0] Back \n");
         }
 
         public string UserOption()
         {
+            string id;
+            if (LogIn.newUser.user_id != null && SignUp.newuser.user_id == null)
+            {
+                id = LogIn.newUser.user_id;
+            }
+            else
+            {
+                id = SignUp.newuser.user_id;
+            }
             string userInput = Console.ReadLine();
             switch (userInput)
             {
@@ -60,6 +70,10 @@ namespace UI_Layer
                     sRepo.AddCompany(newUs);
                     Console.WriteLine("Saved Company_Details ");
                     return "AddAndEditUserDetails";
+                case "5":
+                    sRepo.DeleteCompany(id);
+                    Console.WriteLine("Table is deleted");
+                    return "Personal_Details";
                 case "0":
                     return "AddAndEditUserDetails";
                 default:

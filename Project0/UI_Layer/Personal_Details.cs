@@ -5,8 +5,7 @@ namespace UI_Layer
 {
     internal class Personal_Details : IMenu  
     {
-        //private static string cs = File.ReadAllText("D:/Revature/Project1/UI_Layer/ConnectionString.txt");
-        private static string cs = "Server=tcp:aman-shankar-db.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=Aman;Password=Ananta123@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        private static string cs = $"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;";
         private static User user = new User();
         private static SQLRepo sRepo = new SQLRepo(cs);
 
@@ -15,9 +14,32 @@ namespace UI_Layer
 
         public void Display()
         {
-            Console.WriteLine("User-Id : " + LogIn.newUser.user_id);
-            Console.WriteLine("Email : " + LogIn.newUser.Email);
-            Console.WriteLine("Password : " + LogIn.newUser.password);
+            if (LogIn.newUser.user_id != null && SignUp.newuser.user_id == null)
+            {
+                Console.WriteLine("User-Id : " + LogIn.newUser.user_id);
+            }
+            else {
+                Console.WriteLine("User-Id : " + SignUp.newuser.user_id);
+            }
+            if (LogIn.newUser.Email != null && SignUp.newuser.Email == null)
+            {
+                Console.WriteLine("Email-Id : " + LogIn.newUser.Email);
+            }
+            else
+            {
+                Console.WriteLine("Email_Id : " + SignUp.newuser.Email);
+            }
+            if (LogIn.newUser.password != null && SignUp.newuser.password == null)
+            {
+                Console.WriteLine("Paasword : " + LogIn.newUser.password);
+            }
+            else
+            {
+                Console.WriteLine("Password : " + SignUp.newuser.password);
+            }
+
+            Console.WriteLine("----------------------\n");
+
             List<User> list = sRepo.GetUser(LogIn.newUser.user_id);
             foreach (User user in list)
             {
@@ -32,8 +54,6 @@ namespace UI_Layer
             }
             Console.WriteLine("----------------------\n");
             Console.WriteLine("Edit Your Personal Details:- \n");
-            
-
 
             Console.WriteLine("[1] First-Name : " + user.first_name);   
             Console.WriteLine("[2] Middle-Name : " + user.middle_name);
@@ -52,10 +72,33 @@ namespace UI_Layer
 
         public string UserOption()
         {
+            string id;
+            if (LogIn.newUser.user_id != null && SignUp.newuser.user_id == null)
+            {
+                id = LogIn.newUser.user_id;
+            }
+            else
+            {
+                id = SignUp.newuser.user_id;
+            }
             string userInput = Console.ReadLine();
             Validation newValidation = new(cs);
             switch (userInput)
             {
+                case "14":
+                    return "SeePersonalDetails";
+                case "12":
+                    Console.WriteLine("Your User-Id : ");
+                    user.user_id = Console.ReadLine();
+                    return "Personal_Details";
+                case "13":
+                    Console.WriteLine("Your Password : ");
+                    user.password = Console.ReadLine();
+                    return "Personal_Details";
+                case "11":
+                    Console.WriteLine("Your Email_Id : ");
+                    user.Email = Console.ReadLine();
+                    return "Personal_Details";
                 case "1":
                     Console.WriteLine("Your First-name : ");
                     user.first_name = Console.ReadLine();
@@ -108,13 +151,14 @@ namespace UI_Layer
                     user.about_me = Console.ReadLine();
                     return "Personal_Details";
                 case "10":
-                    sRepo.AddUser(user);
+                    sRepo.AddUser(user , id);
                     Console.WriteLine("User Deatils Added ! ");
+                    Console.ReadKey();
                     return "AddAndEditUserDetails";
                 case "9":
-                    sRepo.Delete(user);
+                    sRepo.DeleteUser(id);
                     Console.WriteLine("Table is deleted");
-                    return "Personal_Details";
+                    return "SignUp";
                 case "0":
                     return "AddAndEditUserDetails";
                 default:

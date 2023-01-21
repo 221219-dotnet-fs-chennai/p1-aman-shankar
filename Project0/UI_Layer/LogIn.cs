@@ -11,8 +11,7 @@ namespace UI_Layer
     internal class LogIn : IMenu
     {
         public static User newUser= new User();
-        static string conStr = "Server=tcp:aman-shankar-db.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=Aman;Password=Ananta123@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-        //ISqlRepo<User> newSqlRepo = new UserTable(conStr);
+        static string conStr = $"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;";
         public static User us = new User();
         public void Display()
         {
@@ -26,17 +25,22 @@ namespace UI_Layer
         }
 
         public string UserOption()
+
         {
-            string cs = File.ReadAllText("D:/Revature/Project1/UI_Layer/ConnectionString.txt");
-            Validation newValidation = new(cs);
+            string e = "";
+            string p = "";
+            string cs = $"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;";
+            Validation newValidation = new(conStr);
             string userInput = Console.ReadLine();
             switch (userInput)
             {
                 case "1":
                     Console.Write("Please Enter Your Registered Email : ");
+                    
                     newUser.Email = Console.ReadLine();
                         if (newValidation.CheckEmailExists(newUser.Email))
                         {
+                            e = newUser.Email;
                             return "LogIn";
                         }
                         else
@@ -65,6 +69,7 @@ namespace UI_Layer
                     newUser.password = Console.ReadLine();
                     if (newValidation.IsValidPassword(newUser.password))
                     {
+                        p = newUser.password;
                         return "LogIn";
                     }
                     else
@@ -73,12 +78,14 @@ namespace UI_Layer
                         return "LogIn";
                     }
                 case "4":
-                    if(newUser.Email != null || newUser.password != null)
+                    newValidation.CheckUserExists(e, p);
+                    Console.WriteLine("done");
+                    return "AddAndEditUserDetails";
+                    /*if(newUser.Email != null && newUser.password != null)
                     {
-                        if (newValidation.CheckUserExists(newUser.Email, newUser.password))
+                        if (newValidation.CheckUserExists(e, p))
                         {
-                            // Console.WriteLine($"Your User_Id is  {LogIn.newUser.user_id} Press enter to login ! ");
-                            // Console.ReadLine();
+                           
                             return "AddAndEditUserDetails";
                         }
                         else
@@ -87,8 +94,8 @@ namespace UI_Layer
                             Console.ReadLine();
                             return "LogIn";
                         }
-                    }
-                    return "LogIn";
+                    }*/
+                    
                 case "0":
                     return "Menu";
                 case "e":

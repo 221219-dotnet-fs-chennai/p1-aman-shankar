@@ -11,7 +11,7 @@ namespace UI_Layer
     internal class Education_Details : SignUp , IMenu
     {
         private static Education ed_Details= new Education();
-        private static string cs = "Server=tcp:aman-shankar-db.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=Aman;Password=Ananta123@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        private static string cs = $"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;";
         private static SQLRepo sRepo = new SQLRepo(cs);
         public void Display()
         {
@@ -43,6 +43,15 @@ namespace UI_Layer
 
         public string UserOption()
         {
+            string id;
+            if (LogIn.newUser.user_id != null && SignUp.newuser.user_id == null)
+            {
+                id = LogIn.newUser.user_id;
+            }
+            else
+            {
+                id = SignUp.newuser.user_id;
+            }
             string userInput = Console.ReadLine();
             switch (userInput)
             {
