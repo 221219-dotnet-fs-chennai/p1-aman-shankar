@@ -202,7 +202,7 @@ namespace UI_Layer
         }
         internal bool IsValidPincode(string pincode)
         {
-            string pattern = @"\d{6}";
+            string pattern = @"^[0-9]{6}$";
             if (Regex.IsMatch(pincode, pattern))
             {
                 return true;

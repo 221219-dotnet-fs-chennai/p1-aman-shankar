@@ -133,7 +133,7 @@ namespace DataLayer
             Console.WriteLine("User_Details Added ! ");
             return user;
         }
-
+       
         //Insertion In Skills ,Education And Company....................................................
         public void AddSkills(Skills skills)
         {
@@ -206,30 +206,53 @@ namespace DataLayer
         }
 
         //Update ...............................................................................................................
-        
-        public void UpdateSkills(Skills newS, Skills oldS)
+
+        public void UpdateSkills(string newS, string oldS , string id)
         {
-            string query = $"Update [Skills] SET [skill_name] = '{newS}' WHERE [skill_name] = '{oldS}';";
+            string query = $"Update [Skills] SET [skill_name] = '{newS}' WHERE [skill_name] = '{oldS}' AND [skill_id] = '{id}';";
             using SqlConnection con = new SqlConnection($"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;");
             con.Open();
             SqlCommand command = new SqlCommand(query, con);
             command.ExecuteNonQuery();
         }
-        public void UpdateEducation(Education newE, Education oldE, Education id) 
+        public Education UpdateEducation(Education ed, string olded, string id)
         {
-            string query = $"Update [Education] SET [education_name] = '{newE}' WHERE [education_name] = '{oldE}' AND [education_id] = {id}";
+            Console.WriteLine("Enter Updated/Previous Education Name ");
+            ed.education_name = Console.ReadLine();
+            Console.WriteLine("Enter Updated/Previous Institute Name ");
+            ed.institute_name = Console.ReadLine();
+            Console.WriteLine("Enter Updated/Previous Grade ");
+            ed.grade = Console.ReadLine();
+            Console.WriteLine("Enter Updated/Previous Duration ");
+            ed.duration = Console.ReadLine();
+            string query = $"UPDATE [Education_Details] SET [education_name] = @edName ,[institute_name] = @inst ,[grade] = @grade ,[duration] = @dur  WHERE [education_name] = '{olded}' AND [education_id] = '{id}';";
             using SqlConnection con = new SqlConnection($"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;");
             con.Open();
             SqlCommand command = new SqlCommand(query, con);
+            command.Parameters.AddWithValue("@edName", ed.education_name);
+            command.Parameters.AddWithValue("@inst", ed.institute_name);
+            command.Parameters.AddWithValue("@grade", ed.grade);
+            command.Parameters.AddWithValue("@dur", ed.duration);
             command.ExecuteNonQuery();
+            return ed;
         }
-        public void UpdateCompany(Company newC, Company oldC, Company id)
+        public Company UpdateCompany(Company com , string oldCom, string id)
         {
-            string query = $"Update [Company] SET [company_name] = '{newC}' WHERE [company_name] = '{oldC}' AND [company_id] = {id};";
+            Console.WriteLine("Enter Updated/Previous Company Name ");
+            com.company_name = Console.ReadLine();
+            Console.WriteLine("Enter Updated/Previous Industry ");
+            com.industry = Console.ReadLine();
+            Console.WriteLine("Enter Updated/Previous Duration ");
+            com.duration = Console.ReadLine();
+            string query = $"Update [Company] SET [company_name] = @comp , [industry] = @ind , [duration] = @dur WHERE [company_name] = '{oldCom}' AND [company_id] = {id};";
             using SqlConnection con = new SqlConnection($"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;");
             con.Open();
             SqlCommand command = new SqlCommand(query, con);
+            command.Parameters.AddWithValue("@company_name", com.company_name);
+            command.Parameters.AddWithValue("@industry", com.industry);
+            command.Parameters.AddWithValue("@duration", com.duration);
             command.ExecuteNonQuery();
+            return com;
         }
     }
 }

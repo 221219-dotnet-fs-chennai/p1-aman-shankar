@@ -53,7 +53,7 @@ class Program
                     menu = new Education_Details();
                     break;
                 case "Experience_In_Companies":
-                    Log.Information("Displaying Personal Details ");
+                    Log.Information("Displaying Experience_In_Companies Details ");
                     menu = new Experience_In_Companies();
                     break;
                 

@@ -23,7 +23,7 @@ namespace UI_Layer
 
         public string UserOption()
         {
-            string cs = File.ReadAllText("D:/Revature/Project1/UI_Layer/ConnectionString.txt");
+            string cs = $"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;";
             Validation newValidation = new(cs);
             string userInput = Console.ReadLine();
             switch (userInput)
@@ -97,7 +97,6 @@ namespace UI_Layer
                         return "SignUp";
                     }
                 case "4":
-                    //try {
                         if (newuser.Email == null || newuser.password == null) 
                         { 
                             return "SignUp"; 
@@ -105,18 +104,8 @@ namespace UI_Layer
                         else
                         {
                             srepo.AddSignUp(newuser);
-                            //newuser.Email = "";
-                            //newuser.password = "";
-                            Console.WriteLine("Added New User ! ");
+                            //Console.WriteLine("Added New User ! ");
                         }
-                    /*}
-                    catch(Exception e)
-                    {
-                        Console.WriteLine(e.Message);
-                        Console.WriteLine("Press Enter To Continue");
-                        Console.ReadKey();
-                        return "LogIn";
-                    }*/
                     return "AddAndEditUserDetails"; 
                 case "0":
                     return "Menu";

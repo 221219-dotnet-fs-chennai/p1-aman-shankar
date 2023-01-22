@@ -134,11 +134,6 @@ namespace UI_Layer
                     Console.WriteLine("Enter Your About_Me : ");
                     user.about_me = Console.ReadLine();
                     return "Personal_Details";
-                case "10":
-                    sRepo.AddUser(user , id);
-                    Console.WriteLine("User Deatils Added ! ");
-                    Console.ReadKey();
-                    return "AddAndEditUserDetails";
                 case "9":
                     Console.WriteLine(id);
                     Console.WriteLine("Press Enter For Confirmation ");
@@ -147,6 +142,11 @@ namespace UI_Layer
                     Console.WriteLine("Parent Table Is Deleted. So Child Tables Are Also Deleted ! ");
                     Console.ReadKey();
                     return "SignUp";
+                case "10":
+                    sRepo.AddUser(user, id);
+                    Console.WriteLine("User Deatils Added ! ");
+                    Console.ReadKey();
+                    return "AddAndEditUserDetails";
                 case "0":
                     return "AddAndEditUserDetails";
                 default:

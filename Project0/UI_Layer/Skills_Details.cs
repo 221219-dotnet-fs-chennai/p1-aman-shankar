@@ -70,17 +70,22 @@ namespace UI_Layer
                     return "AddAndEditUserDetails";
                 case "4":
                     Console.WriteLine("Please Enter Which Skill You Want To Update ! ");
-                   /* string up_skill = Console.ReadLine();
-                    for (int i = 0; i < skill_Details.skill_name.Length; i++)
+                    string up_skill = Console.ReadLine();
+                    string new_skill = "";
+                    if (list.Count != 0)
                     {
-                        if (skill_Details.skill_name == up_skill)
+                        foreach (Skills sk in list)
                         {
-                            newSqlRepo.UpdateSkills(up_skill , skill_Details.skill_name);
+                            if (sk.skill_name == up_skill)
+                            {
+                                Console.WriteLine("Please Enter new skill ! ");
+                                 new_skill = Console.ReadLine();
+                                newSqlRepo.UpdateSkills(new_skill,up_skill,id);
+                            }
+                           
                         }
                     }
-                    */
-                    
-                    return "AddAndEditUserDetails";
+                    return "Skills_Details";
                 case "5":
                     Console.WriteLine("Please Enter Which Skill You Want To Delete ");
                     string del = Console.ReadLine();

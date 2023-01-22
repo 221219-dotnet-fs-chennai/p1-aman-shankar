@@ -58,7 +58,7 @@ namespace UI_Layer
             switch (userInput)
             {
                 case "1":
-                    Console.WriteLine("Please Enter Your Education_Id");
+                    Console.WriteLine("Please Enter Your Company_Id");
                     newUs.company_id = id;
                     return "Experience_In_Companies";
                 case "2":
@@ -77,7 +77,21 @@ namespace UI_Layer
                     sRepo.AddCompany(newUs);
                     Console.WriteLine("Saved Company_Details ! Press Enter ");
                     Console.ReadKey();
-                    return "AddAndEditUserDetails";
+                    return "Experience_In_Companies";
+                case "6":
+                    Console.WriteLine("Please Enter Comapany Name You Want To Update ");
+                    string upd = Console.ReadLine();
+                    if (list.Count != 0)
+                    {
+                        foreach (Company comp_info in list)
+                        {
+                            if (comp_info.company_name == upd)
+                            {
+                                sRepo.UpdateCompany(comp_info, upd, id);
+                            }
+                        }
+                    }
+                    return "Experience_In_Companies";
                 case "7":
                     Console.WriteLine("Please Enter Company Name You Want To Delete ");
                     string del = Console.ReadLine();

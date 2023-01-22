@@ -39,7 +39,8 @@ namespace UI_Layer
             Console.WriteLine("[4] Grade : " + ed_Details.grade);
             Console.WriteLine("[5] Duration : " + ed_Details.duration);
             Console.WriteLine("[6] Save :");
-            Console.WriteLine("[7] Delete ");
+            Console.WriteLine("[7] Update :");
+            Console.WriteLine("[8] Delete ");
             Console.WriteLine("[0] Back:- \n");
         }
 
@@ -85,6 +86,21 @@ namespace UI_Layer
                     Console.ReadKey();
                     return "AddAndEditUserDetails";
                 case "7":
+                    Console.WriteLine("Please Enter Education Name You Want To Update ");
+                    string upd = Console.ReadLine();
+                    if (list.Count != 0)
+                    {
+                        foreach (Education ed_info in list)
+                        {
+                            if (ed_info.education_name == upd)
+                            {
+
+                                sRepo.UpdateEducation(ed_info, upd, id);
+                            }
+                        }
+                    }
+                    return "Education_Details";
+                case "8":
                     Console.WriteLine("Please Enter Education Name You Want To Delete ");
                     string del = Console.ReadLine();
                     if (list.Count != 0)
