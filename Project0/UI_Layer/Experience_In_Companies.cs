@@ -18,11 +18,11 @@ namespace UI_Layer
             List<Company> list = sRepo.GetCompany(LogIn.newUser.user_id);
             if (list.Count != 0)
             {
-                foreach (Company newUs in list)
+                foreach (Company com in list)
                 {
-                    Console.WriteLine("Company_Name : " + newUs.company_name);
-                    Console.WriteLine("Industry : " + newUs.industry);
-                    Console.WriteLine("Duration : " + newUs.duration);
+                    Console.WriteLine("Company_Name : " + com.company_name);
+                    Console.WriteLine("Industry : " + com.industry);
+                    Console.WriteLine("Duration : " + com.duration);
                 }
             }
             else
@@ -44,6 +44,7 @@ namespace UI_Layer
 
         public string UserOption()
         {
+            List<Company> list = sRepo.GetCompany(LogIn.newUser.user_id);
             string id;
             if (LogIn.newUser.user_id != null && SignUp.newuser.user_id == null)
             {
@@ -78,23 +79,19 @@ namespace UI_Layer
                     Console.ReadKey();
                     return "AddAndEditUserDetails";
                 case "7":
-                    Console.WriteLine("Please Enter Which Company You Want To Delete ");
+                    Console.WriteLine("Please Enter Company Name You Want To Delete ");
                     string del = Console.ReadLine();
-                    for (int i = 0; i < newUs.company_name.Length; i++)
+                    if (list.Count != 0)
                     {
-                        if (newUs.company_name == del)
+                        foreach (Company comp in list)
                         {
-                            Console.WriteLine(del);
-                            Console.WriteLine("Press Enter For Confirmation ");
-                            Console.ReadLine();
-                            sRepo.DeleteSkills(del);
-                            Console.WriteLine("Deleted Successfully !");
-                        }
-                        else
-                        {
-                            Console.WriteLine("You Don't Have This Education Yet ! Press Enter ");
-                            Console.ReadLine();
-                            break;
+                            if (comp.company_name == del)
+                            {
+                                sRepo.DeleteCompany(comp.company_name, id);
+                                Console.WriteLine("Selected Company Record Is Deleted ! Press Enter To See Changes. ");
+                                Console.ReadKey();
+                                break;
+                            }
                         }
                     }
                     return "Experience_In_Companies";

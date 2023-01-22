@@ -19,12 +19,12 @@ namespace UI_Layer
             List<Education> list = sRepo.GetEducation(LogIn.newUser.user_id);
             if (list.Count != 0)
             {
-                foreach (Education ed_Details in list)
+                foreach (Education ed_info in list)
                 {
-                    Console.WriteLine("Education_Name : " + ed_Details.education_name);
-                    Console.WriteLine("Institute_Name : " + ed_Details.institute_name);
-                    Console.WriteLine("Grade : " + ed_Details.grade);
-                    Console.WriteLine("Duration : " + ed_Details.duration);
+                    Console.WriteLine("Education_Name : " + ed_info.education_name);
+                    Console.WriteLine("Institute_Name : " + ed_info.institute_name);
+                    Console.WriteLine("Grade : " + ed_info.grade);
+                    Console.WriteLine("Duration : " + ed_info.duration);
                 }
             }else
             {
@@ -45,6 +45,8 @@ namespace UI_Layer
 
         public string UserOption()
         {
+            List<Education> list = sRepo.GetEducation(LogIn.newUser.user_id);
+
             string id;
             if (LogIn.newUser.user_id != null && SignUp.newuser.user_id == null)
             {
@@ -83,23 +85,19 @@ namespace UI_Layer
                     Console.ReadKey();
                     return "AddAndEditUserDetails";
                 case "7":
-                    Console.WriteLine("Please Enter Which Education-Detail You Want To Delete ");
+                    Console.WriteLine("Please Enter Education Name You Want To Delete ");
                     string del = Console.ReadLine();
-                    for (int i = 0; i < ed_Details.education_name.Length; i++)
+                    if (list.Count != 0)
                     {
-                        if (ed_Details.education_name == del)
+                        foreach (Education ed_info in list)
                         {
-                            Console.WriteLine(del);
-                            Console.WriteLine("Press Enter For Confirmation ");
-                            Console.ReadLine();
-                            sRepo.DeleteSkills(del);
-                            Console.WriteLine("Deleted Successfully !");
-                        }
-                        else
-                        {
-                            Console.WriteLine("You Don't Have This Id Yet ! Press Enter ");
-                            Console.ReadLine();
-                            break;
+                            if (ed_info.education_name == del)
+                            {
+                                sRepo.DeleteEducation(ed_info.education_name, id);
+                                Console.WriteLine("Selected Education Record Is Deleted ! Press Enter To See Changes. ");
+                                Console.ReadKey();
+                                break;
+                            }
                         }
                     }
                     return "Education_Details";

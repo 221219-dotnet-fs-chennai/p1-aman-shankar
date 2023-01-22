@@ -174,32 +174,31 @@ namespace DataLayer
         //Delete ......................................................................................
         public void DeleteUser(string user )
         {
-            string query = $"DELETE FROM [User] WHERE [user_id] = {user};";
+            string query = $"DELETE FROM [User] WHERE [user_id] = '{user}';";
             using SqlConnection con = new SqlConnection($"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;");
             con.Open();
             SqlCommand command = new SqlCommand(query, con);
             command.ExecuteNonQuery();
         }
-        public string DeleteSkills(string skills)
+        public void DeleteSkills(string skills, string id)
         {
-            string query = $"DELETE FROM [User] WHERE [skill_id] = {skills}";
-            using SqlConnection con = new SqlConnection($"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;");
-            con.Open();
-            SqlCommand command = new SqlCommand(query, con);
-            command.ExecuteNonQuery();
-            return skills;
-        }
-        public void DeleteEducation(string edu)
-        {
-            string query = $"DELETE FROM [User] WHERE [user_id] = {edu}";
+            string query = $"DELETE FROM [Skills] WHERE [skill_name] = '{skills}' AND [skill_id] = '{id}';";
             using SqlConnection con = new SqlConnection($"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;");
             con.Open();
             SqlCommand command = new SqlCommand(query, con);
             command.ExecuteNonQuery();
         }
-        public void DeleteCompany(string comp)
+        public void DeleteEducation(string edu, string id)
         {
-            string query = $"DELETE FROM [User] WHERE [user_id] = {comp}";
+            string query = $"DELETE FROM [Education_Details] WHERE [education_name] = '{edu}' AND [education_id] = '{id}';";
+            using SqlConnection con = new SqlConnection($"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;");
+            con.Open();
+            SqlCommand command = new SqlCommand(query, con);
+            command.ExecuteNonQuery();
+        }
+        public void DeleteCompany(string comp , string id)
+        {
+            string query = $"DELETE FROM [Company] WHERE [company_name] = '{comp}' AND [company_id] = '{id}';";
             using SqlConnection con = new SqlConnection($"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;");
             con.Open();
             SqlCommand command = new SqlCommand(query, con);
@@ -207,15 +206,6 @@ namespace DataLayer
         }
 
         //Update ...............................................................................................................
-        
-        /*public void UpdateUser(User newU, User oldU, User id)  //not completed
-        {
-            string query = $"Update [User] SET [first_name] = '{newU}' WHERE '{oldU}' AND [user_id] = {id};";
-            using SqlConnection con = new SqlConnection($"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;");
-            con.Open();
-            SqlCommand command = new SqlCommand(query, con);
-            command.ExecuteNonQuery();
-        }*/
         
         public void UpdateSkills(Skills newS, Skills oldS)
         {

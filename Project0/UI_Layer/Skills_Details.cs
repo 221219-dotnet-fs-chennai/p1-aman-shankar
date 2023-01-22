@@ -9,10 +9,10 @@ namespace UI_Layer
 {
     internal class Skills_Details :  IMenu
     {
-        private static Skills skill_Details = new Skills();
+        public static Skills skill_Details = new Skills();
         private static string cs = $"Server=DESKTOP-QONHH5T;Database=Project0;Trusted_Connection=True;";
         private static SQLRepo newSqlRepo = new SQLRepo(cs);
-
+        
         public void Display()
         {
             Console.WriteLine("Skill_Id : " + LogIn.newUser.user_id);
@@ -41,6 +41,8 @@ namespace UI_Layer
 
         public string UserOption()
         {
+            List<Skills> list = newSqlRepo.GetSkills(LogIn.newUser.user_id);
+
             string id;
             if (LogIn.newUser.user_id != null && SignUp.newuser.user_id == null)
             {
@@ -68,35 +70,30 @@ namespace UI_Layer
                     return "AddAndEditUserDetails";
                 case "4":
                     Console.WriteLine("Please Enter Which Skill You Want To Update ! ");
-                    string up_skill = Console.ReadLine();
-                    /*for (int i = 0; i < skill_Details.skill_name.Length; i++)
+                   /* string up_skill = Console.ReadLine();
+                    for (int i = 0; i < skill_Details.skill_name.Length; i++)
                     {
-
+                        if (skill_Details.skill_name == up_skill)
+                        {
+                            newSqlRepo.UpdateSkills(up_skill , skill_Details.skill_name);
+                        }
                     }
-                    if (skill_Details.skill_name ==)
-                    {
-
-                    }
-                    newSqlRepo.UpdateSkills(up_skill , skill_Details.skill_name);*/
+                    */
+                    
                     return "AddAndEditUserDetails";
                 case "5":
                     Console.WriteLine("Please Enter Which Skill You Want To Delete ");
                     string del = Console.ReadLine();
-                    for(int i = 0; i < skill_Details.skill_name.Length; i++)
+                    if (list.Count != 0)
                     {
-                        if(skill_Details.skill_name == del)
-                        {
-                            Console.WriteLine(del);
-                            Console.WriteLine("Press Enter For Confirmation ");
-                            Console.ReadLine();
-                            newSqlRepo.DeleteSkills(del);
-                            Console.WriteLine("Table Is Deleted !");
-                        }
-                        else
-                        {
-                            Console.WriteLine("You Don't Have This Skill Yet ! Press Enter ");
-                            Console.ReadLine();
-                            break;
+                        foreach (Skills skill in list)
+                        { 
+                            if (skill.skill_name == del) {
+                                newSqlRepo.DeleteSkills(skill.skill_name, id);
+                                Console.WriteLine("Selected Skill Record Is Deleted ! Press Enter To See Changes. ");
+                                Console.ReadKey();
+                                break;
+                            }
                         }
                     }
                     return "Skills_Details";
