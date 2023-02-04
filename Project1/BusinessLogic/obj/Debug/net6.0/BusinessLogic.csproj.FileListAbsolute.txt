@@ -1,0 +1,14 @@
+C:\Training\p1-aman-shankar\Project1\BusinessLogic\bin\Debug\net6.0\BusinessLogic.deps.json
+C:\Training\p1-aman-shankar\Project1\BusinessLogic\bin\Debug\net6.0\BusinessLogic.dll
+C:\Training\p1-aman-shankar\Project1\BusinessLogic\bin\Debug\net6.0\BusinessLogic.pdb
+C:\Training\p1-aman-shankar\Project1\BusinessLogic\obj\Debug\net6.0\BusinessLogic.csproj.AssemblyReference.cache
+C:\Training\p1-aman-shankar\Project1\BusinessLogic\obj\Debug\net6.0\BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Training\p1-aman-shankar\Project1\BusinessLogic\obj\Debug\net6.0\BusinessLogic.AssemblyInfoInputs.cache
+C:\Training\p1-aman-shankar\Project1\BusinessLogic\obj\Debug\net6.0\BusinessLogic.AssemblyInfo.cs
+C:\Training\p1-aman-shankar\Project1\BusinessLogic\obj\Debug\net6.0\BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Training\p1-aman-shankar\Project1\BusinessLogic\obj\Debug\net6.0\BusinessLogic.dll
+C:\Training\p1-aman-shankar\Project1\BusinessLogic\obj\Debug\net6.0\refint\BusinessLogic.dll
+C:\Training\p1-aman-shankar\Project1\BusinessLogic\obj\Debug\net6.0\BusinessLogic.pdb
+C:\Training\p1-aman-shankar\Project1\BusinessLogic\obj\Debug\net6.0\ref\BusinessLogic.dll
+C:\Training\p1-aman-shankar\Project1\BusinessLogic\bin\Debug\net6.0\BusinessLogic.runtimeconfig.json
+C:\Training\p1-aman-shankar\Project1\BusinessLogic\obj\Debug\net6.0\BusinessLogic.genruntimeconfig.cache

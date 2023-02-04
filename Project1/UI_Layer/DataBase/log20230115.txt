@@ -1,0 +1,22 @@
+2023-01-15 01:40:10.904 +05:30 [INF] ----Program starts----
+2023-01-15 01:40:10.934 +05:30 [INF] ----Program Ends----
+2023-01-15 01:42:50.137 +05:30 [INF] ----Program starts----
+2023-01-15 01:42:50.167 +05:30 [INF] ----Program Ends----
+2023-01-15 01:42:53.403 +05:30 [INF] Displaying SignUp to user : 
+2023-01-15 01:44:58.248 +05:30 [INF] Displaying SignUp to user : 
+2023-01-15 01:45:03.680 +05:30 [INF] Displaying SignUp to user : 
+2023-01-15 01:45:15.085 +05:30 [INF] Displaying SignUp to user : 
+2023-01-15 01:45:25.063 +05:30 [INF] Displaying SignUp to user : 
+2023-01-15 01:45:34.693 +05:30 [INF] Displaying SignUp to user : 
+2023-01-15 01:45:44.804 +05:30 [INF] Displaying SignUp to user : 
+2023-01-15 01:45:56.735 +05:30 [INF] Displaying SignUp to user : 
+2023-01-15 01:46:00.305 +05:30 [INF] Displaying Main Menu to user :
+2023-01-15 01:48:41.952 +05:30 [INF] Exiting application
+2023-01-15 01:48:47.595 +05:30 [INF] ----Program starts----
+2023-01-15 01:48:47.624 +05:30 [INF] ----Program Ends----
+2023-01-15 01:48:50.041 +05:30 [INF] Displaying SignUp to user : 
+2023-01-15 01:48:56.238 +05:30 [INF] Displaying SignUp to user : 
+2023-01-15 01:48:59.817 +05:30 [INF] Displaying SignUp to user : 
+2023-01-15 01:49:11.103 +05:30 [INF] Displaying SignUp to user : 
+2023-01-15 01:49:16.047 +05:30 [INF] Displaying SignUp to user : 
+2023-01-15 01:49:18.747 +05:30 [INF] Displaying SignUp to user : 
