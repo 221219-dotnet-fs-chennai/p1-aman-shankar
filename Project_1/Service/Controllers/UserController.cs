@@ -25,7 +25,7 @@ namespace Service.Controllers
         {
             return "Hello world";
         }*/
-        [HttpGet("all")]
+        [HttpGet("All_Users")]
         // [EnableCors("policy2")]
         public ActionResult Get()
         {
@@ -49,7 +49,7 @@ namespace Service.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPost("Add")] // Trying to create a resource on the server
+        [HttpPost("Add_User")] // Trying to create a resource on the server
         public ActionResult Add([FromBody] User u)
         {
             try
@@ -65,6 +65,55 @@ namespace Service.Controllers
             {
                 return BadRequest(e.Message);
             }
+        }
+        [HttpPut("Update")]
+        public ActionResult Update(string user_id, [FromBody] User u)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(user_id))
+                {
+                    _logic.UpdateUser(user_id, u);
+                    return Ok(u);
+                }
+                else
+                    return BadRequest($"something wrong with {u.user_id} input, please try again!");
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpDelete("Delete")]
+        public ActionResult Delete(string user_id)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(user_id))
+                {
+                    var rest = _logic.RemoveUserByUser_Id(user_id);
+                    if (rest != null)
+                        return Ok(rest);
+                    else
+                        return NotFound();
+                }
+                else
+                    return BadRequest("Please add a valid user_id to be deleted");
+
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
         }
     }
 }

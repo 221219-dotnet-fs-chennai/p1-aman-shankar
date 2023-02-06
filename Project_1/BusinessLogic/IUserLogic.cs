@@ -15,5 +15,7 @@ namespace Business_Logic
         /// <param name="u"></param>
         /// <returns>User Added</returns>
         User AddUser(User u);
+        User RemoveUserByUser_Id(string u);
+        User UpdateUser(string user_id, User u);
     }
 }

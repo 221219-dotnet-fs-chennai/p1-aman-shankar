@@ -17,6 +17,17 @@ namespace Models
         /// </summary>
         /// <returns>List of all users objects in the collection of Type List<User></returns>
         List<T> GetAllUsers();
-
+        /// <summary>
+        /// Removes the the given user from the database by searching for the user by name
+        /// </summary>
+        /// <param name="user_id"></param>
+        /// <returns>Returns the user which is removed from the users table</returns>
+        T RemoveUser(string user_id);
+        /// <summary>
+        /// Updates the information about the user in the database
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns>updated user</returns>
+        T UpdateUser(T user);
     }
 }
