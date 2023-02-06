@@ -49,5 +49,22 @@ namespace Service.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpPost("Add")] // Trying to create a resource on the server
+        public ActionResult Add([FromBody] User u)
+        {
+            try
+            {
+                var addedUser = _logic.AddUser(u);
+                return CreatedAtAction("Add", addedUser); //201 -> Serialization of restaurant object
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }
