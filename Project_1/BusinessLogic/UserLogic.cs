@@ -14,5 +14,10 @@ namespace Business_Logic
         {
             return Mapper.Map(_repo.GetAllUsers());
         }
+
+        User IUserLogic.AddUser(User u)
+        {
+            return Mapper.Map(_repo.AddUser(Mapper.Map(u)));
+        }
     }
 }

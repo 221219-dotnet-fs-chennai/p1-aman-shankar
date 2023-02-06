@@ -29,6 +29,28 @@ namespace Business_Logic
             };
         }
         /// <summary>
+        /// This method converts Entity Framework User Entity to Models' Company object
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns>Data.User</returns>
+        public static Data.User Map(Models.User u)
+        {
+            return new Data.User()
+            {
+                UserId = u.user_id,
+                FirstName = u.first_name,
+                MiddleName = u.middle_name,
+                LastName = u.last_name,
+                Gender = u.gender,
+                Pincode = u.pincode,
+                Email = u.Email,
+                Website = u.website,
+                MobileNumber = u.mobile_number,
+                Password = u.password,
+                AboutMe = u.about_me
+            };
+        }
+        /// <summary>
         /// This method converts Models' Company object to Entity Framework Company Entity
         /// </summary>
         /// <param name="c"></param>
@@ -45,6 +67,22 @@ namespace Business_Logic
             };
         }
         /// <summary>
+        /// This method converts Entity Framework Company Entity to Models' Company object
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns>Data.Company</returns>
+        public static Data.Company Map(Models.Company c)
+        {
+            return new Data.Company()
+            {
+                CId = c.c_id,
+                CompanyId = c.company_id,
+                CompanyName = c.company_name,
+                Industry = c.industry,
+                Duration = c.duration
+            };
+        }
+        /// <summary>
         /// This method converts Models' Skills object to Entity Framework Skill Entity
         /// </summary>
         /// <param name="s"></param>
@@ -56,6 +94,20 @@ namespace Business_Logic
                 s_id = s.SId,
                 skill_id = s.SkillId,
                 skill_name = s.SkillName
+            };
+        }
+        /// <summary>
+        /// This method converts Entity Framework Skills Entity to Models' Company object
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns>Data.Skills</returns>
+        public static Data.Skill Map(Models.Skills s)
+        {
+            return new Data.Skill()
+            {
+                SId = s.s_id,
+                SkillId = s.skill_id,
+                SkillName = s.skill_name
             };
         }
         /// <summary>
@@ -75,9 +127,54 @@ namespace Business_Logic
                 duration = e.Duration
             };
         }
+        /// <summary>
+        /// This method converts Entity Framework Education Entity to Models' Company object
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns>Data.Education</returns>
+        public static Data.EducationDetail Map(Models.Education e)
+        {
+            return new Data.EducationDetail()
+            {
+                EId = e.e_id,
+                EducationId = e.education_id,
+                EducationName = e.education_name,
+                InstituteName = e.institute_name,
+                Grade = e.grade,
+                Duration = e.duration
+            };
+        }
         public static IEnumerable<Models.User> Map(IEnumerable<Data.User> users)
         {
             return users.Select(Map);
+        }
+        public static IEnumerable<Data.User> Map(IEnumerable<Models.User> users)
+        {
+            return users.Select(Map);
+        }
+        public static IEnumerable<Models.Skills> Map(IEnumerable<Data.Skill> skills)
+        {
+            return skills.Select(Map);
+        }
+        public static IEnumerable<Data.Skill> Map(IEnumerable<Models.Skills> skills)
+        {
+            return skills.Select(Map);
+        }
+        public static IEnumerable<Models.Education> Map(IEnumerable<Data.EducationDetail> educations)
+        {
+            return educations.Select(Map);
+        }
+        public static IEnumerable<Data.EducationDetail> Map(IEnumerable<Models.Education> educations)
+        {
+            return educations.Select(Map);
+        }
+        public static IEnumerable<Models.Company> Map(IEnumerable<Data.Company> companies)
+        {
+            return companies.Select(Map);
+        }
+        public static IEnumerable<Data.Company> Map(IEnumerable<Models.Company> companies)
+        {
+            return companies.Select(Map);
         }
     }
 }

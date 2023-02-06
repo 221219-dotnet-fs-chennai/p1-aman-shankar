@@ -9,5 +9,11 @@ namespace Business_Logic
         /// </summary>
         /// <returns></returns>
         IEnumerable<User> GetAllUsers();
+        /// <summary>
+        /// Add user to the database
+        /// </summary>
+        /// <param name="u"></param>
+        /// <returns>User Added</returns>
+        User AddUser(User u);
     }
 }
