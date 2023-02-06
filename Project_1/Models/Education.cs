@@ -12,9 +12,9 @@ namespace Models
         public int e_id { get; set; }
         public string education_id { get; set; } 
         public string education_name { get; set; }
-        public string institute_name { get; set; }
-        public string grade { get; set; } 
-        public string duration { get; set; }
+        public string ? institute_name { get; set; }
+        public string ? grade { get; set; } 
+        public string ? duration { get; set; }
         public Education(int e_id , string education_id,string education_name, string institute_name, string grade,string duration) 
         {
             this.e_id = e_id;

@@ -7,7 +7,7 @@ namespace Business_Logic
         /// This method will return all the users been queried from the Data Logic
         /// </summary>
         /// <returns></returns>
-        IEnumerable<User> GetAllUsers();
+        IEnumerable<User> GetAllUser();
 /*
         /// <summary>
         /// This will fetch all the restaurants from the Data layer and then filter it by zipocode

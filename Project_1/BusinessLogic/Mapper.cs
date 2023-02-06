@@ -21,8 +21,10 @@ namespace Business_Logic
                 last_name = u.LastName,
                 gender = u.Gender,
                 pincode = u.Pincode,
+                Email= u.Email,
                 website = u.Website,
                 mobile_number = u.MobileNumber,
+                password= u.Password,
                 about_me = u.AboutMe
             };
         }
@@ -72,6 +74,10 @@ namespace Business_Logic
                 grade = e.Grade,
                 duration = e.Duration
             };
+        }
+        public static IEnumerable<Models.User> Map(IEnumerable<Data.User> users)
+        {
+            return users.Select(Map);
         }
     }
 }

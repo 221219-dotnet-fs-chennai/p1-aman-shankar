@@ -11,9 +11,9 @@ namespace Business_Logic
         {
             repo = new EF.Repo();
         }
-        IEnumerable<User> ILogic.GetAllUsers()
+        public IEnumerable<User> GetAllUser()
         {
-            return Mapper.Map(repo.GellAllUsers());
+            return Mapper.Map(repo.GetAllUsers());
         }
     }
 }

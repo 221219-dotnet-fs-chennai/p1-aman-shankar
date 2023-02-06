@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EntityLib.Entities;
 
-public partial class Project1Context : DbContext
+public partial class DbContext : Microsoft.EntityFrameworkCore.DbContext
 {
-    public Project1Context()
+    public DbContext()
     {
     }
 
-    public Project1Context(DbContextOptions<Project1Context> options)
+    public DbContext(DbContextOptions<DbContext> options)
         : base(options)
     {
     }

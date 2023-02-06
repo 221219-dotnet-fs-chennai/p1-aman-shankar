@@ -14,8 +14,8 @@ namespace Models
         public int c_id { get; set; }
         public string company_id { get; set; } 
         public string company_name { get; set; }
-        public string industry { get; set; }
-        public string duration { get; set; }
+        public string ? industry { get; set; }
+        public string ? duration { get; set; }
 
         public Company(int c_id , string company_id, string company_name, string industry, string duration)
         {
