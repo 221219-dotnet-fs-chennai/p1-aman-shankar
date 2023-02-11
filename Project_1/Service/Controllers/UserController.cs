@@ -26,7 +26,6 @@ namespace Service.Controllers
             return "Hello world";
         }*/
         [HttpGet("All_Users")]
-        // [EnableCors("policy2")]
         public ActionResult Get()
         {
             try
@@ -49,6 +48,27 @@ namespace Service.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpGet("Email/{Email}")]
+        public ActionResult GetByEmail([FromRoute] string Email)
+        {
+            try
+            {
+                var search = _logic.GetUsersByUser_Email(Email);
+                if (search != null)
+                    return Ok(search);
+                else
+                    return NotFound($"Restaurants with ID {Email} not available, please try with different id");
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
         [HttpPost("Add_User")] // Trying to create a resource on the server
         public ActionResult Add([FromBody] User u)
         {
@@ -67,17 +87,17 @@ namespace Service.Controllers
             }
         }
         [HttpPut("Update")]
-        public ActionResult Update(string user_id, [FromBody] User u)
+        public ActionResult Update(string E_Mail, [FromBody] User u)
         {
             try
             {
-                if (!string.IsNullOrEmpty(user_id))
+                if (!string.IsNullOrEmpty(E_Mail))
                 {
-                    _logic.UpdateUser(user_id, u);
+                    _logic.UpdateUser(E_Mail, u);
                     return Ok(u);
                 }
                 else
-                    return BadRequest($"something wrong with {u.user_id} input, please try again!");
+                    return BadRequest($"something wrong with {u.Email} input, please try again!");
             }
             catch (SqlException ex)
             {
@@ -89,13 +109,13 @@ namespace Service.Controllers
             }
         }
         [HttpDelete("Delete")]
-        public ActionResult Delete(string user_id)
+        public ActionResult Delete([FromQuery]string Email)
         {
             try
             {
-                if (!string.IsNullOrEmpty(user_id))
+                if (!string.IsNullOrEmpty(Email))
                 {
-                    var rest = _logic.RemoveUserByUser_Id(user_id);
+                    var rest = _logic.RemoveUserByUser_Email(Email);
                     if (rest != null)
                         return Ok(rest);
                     else

@@ -6,10 +6,10 @@ namespace Business_Logic
 {
     public class Logic : ILogic
     {
-        IRepo<EF.Entities.User> repo;
-        public Logic()
+        IUserRepo<EF.Entities.User> repo;
+        public Logic(IUserRepo<EF.Entities.User> repo)
         {
-            repo = new EF.Repo();
+            this.repo = repo;
         }
         public IEnumerable<User> GetAllUser()
         {

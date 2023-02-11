@@ -16,8 +16,8 @@ namespace Models
         public string ? mobile_number { get; set; }
         public string password { get; set; } 
         public string ? about_me { get; set; }
-        public User(string user_id, string first_name, string middle_name , string last_name, string gender , string pincode, string Email, string website, string mobiele_number, string password, string about_me) { 
-            this.user_id = user_id;
+        public User(string id ,string first_name, string middle_name , string last_name, string gender , string pincode, string Email, string website, string mobiele_number, string password, string about_me) {
+            this.user_id = id;
             this.first_name = first_name;
             this.middle_name = middle_name;
             this.last_name = last_name;

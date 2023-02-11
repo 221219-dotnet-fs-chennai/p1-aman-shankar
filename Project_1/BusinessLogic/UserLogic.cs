@@ -5,8 +5,8 @@ namespace Business_Logic
 {
     public class UserLogic : IUserLogic
     {
-        IRepo<datafirst.User> _repo;
-        public UserLogic(IRepo<datafirst.User> repo)
+        IUserRepo<datafirst.User> _repo;
+        public UserLogic(IUserRepo<datafirst.User> repo)
         {
             _repo = repo;
         }
@@ -20,7 +20,7 @@ namespace Business_Logic
             return Mapper.Map(_repo.AddUser(Mapper.Map(u)));
         }
 
-        User IUserLogic.RemoveUserByUser_Id(string u)
+        User IUserLogic.RemoveUserByUser_Email(string u)
         {
             var deletedUser = _repo.RemoveUser(u);
             if (deletedUser != null)
@@ -28,17 +28,21 @@ namespace Business_Logic
             else
                 return null;
         }
+        public User GetUsersByUser_Email(string u)
+        {
+            var search = _repo.GetAllUsers().Where(r => r.Email == u).FirstOrDefault();
+            return Mapper.Map(search);
+        }
 
-        User IUserLogic.UpdateUser(string user_id, User u)
+        User IUserLogic.UpdateUser(string email, User u)
         {
             var user = (from usr in _repo.GetAllUsers()
-                              where usr.UserId == user_id &&
-                              usr.UserId == u.user_id
+                              where usr.Email == email
                               select usr).FirstOrDefault();
             if (user != null)
             {
-                user.UserId = u.user_id;
-                user.Email = u.Email;
+               // user.UserId = u.user_id;
+               // user.Email = u.Email;
                 user.Password = u.password;
                 user.FirstName = u.first_name;
                 user.MiddleName = u.middle_name;
@@ -46,9 +50,8 @@ namespace Business_Logic
                 user.Gender= u.gender;
                 user.Pincode = u.pincode;
                 user.Website = u.website;
-                user.MobileNumber = u.mobile_number;
+               // user.MobileNumber = u.mobile_number;
                 user.AboutMe = u.about_me;
-                //restaurant = Mapper.Map(r);
 
                 user = _repo.UpdateUser(user);
             }

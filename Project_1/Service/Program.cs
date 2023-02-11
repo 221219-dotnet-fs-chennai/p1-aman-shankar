@@ -3,6 +3,9 @@ using EntityLib;
 using Microsoft.EntityFrameworkCore;
 using Models;
 
+using EntityLib.Entities;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,9 +17,13 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddMemoryCache();
 
 var trainer_config = builder.Configuration.GetConnectionString("Project1");
-builder.Services.AddDbContext<DbContext>(options => options.UseSqlServer(trainer_config));
+builder.Services.AddDbContext<TrainerDbContext>(options => options.UseSqlServer(trainer_config));
 builder.Services.AddScoped<IUserLogic, UserLogic>();
-builder.Services.AddScoped<IRepo<EntityLib.Entities.User>, Repo>();
+builder.Services.AddScoped<IUserRepo<EntityLib.Entities.User>, UserRepo>();
+
+builder.Services.AddScoped<ISkillLogic, SkillLogic>();
+builder.Services.AddScoped<ISkillRepo, SkillRepo>();
+
 
 var app = builder.Build();
 

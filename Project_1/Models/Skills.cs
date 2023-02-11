@@ -12,7 +12,7 @@ namespace Models
         public int s_id { get; set; }
         public string skill_id { get; set; }
         public string skill_name { get; set; }
-        public Skills(int s_id , string skill_id , string skill_name)
+        public Skills(int s_id, string skill_id, string skill_name)
         {
             this.s_id = s_id;
             this.skill_id = skill_id;
@@ -24,10 +24,10 @@ namespace Models
             return $"{s_id},{skill_id},{skill_name}";
         }
 
-        /*private readonly string connectionString;
+        private readonly string connectionString;
         public Skills(string connectionString)
         {
             this.connectionString = connectionString;
-        }*/
+        }
     }
 }

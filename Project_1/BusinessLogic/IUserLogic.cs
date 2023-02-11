@@ -9,13 +9,14 @@ namespace Business_Logic
         /// </summary>
         /// <returns></returns>
         IEnumerable<User> GetAllUsers();
+        User GetUsersByUser_Email(string email);
         /// <summary>
         /// Add user to the database
         /// </summary>
         /// <param name="u"></param>
         /// <returns>User Added</returns>
         User AddUser(User u);
-        User RemoveUserByUser_Id(string u);
-        User UpdateUser(string user_id, User u);
+        User RemoveUserByUser_Email(string email);
+        User UpdateUser(string email, User u);
     }
 }

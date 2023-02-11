@@ -1,14 +1,18 @@
 ﻿using Models;
 using EntityLib.Entities;
 using Microsoft.EntityFrameworkCore;
-using DbContext = EntityLib.Entities.DbContext;
+using TrainerDbContext = EntityLib.Entities.TrainerDbContext;
 
 namespace EntityLib
 {
-    public class Repo : IRepo<Entities.User>
+    public class UserRepo : IUserRepo<Entities.User>
     {
-        
-        DbContext context = new DbContext();
+
+        readonly TrainerDbContext context;
+
+        public UserRepo(TrainerDbContext _context) {
+            context= _context;
+        }
         public List<Entities.User> GetAllUsers()
         {
             return context.Users.ToList();
@@ -24,9 +28,9 @@ namespace EntityLib
             context.SaveChanges(); // this method will fire the query to DB and persist the changes
             return user;
         }
-        public Entities.User RemoveUser(string user_id)
+        public Entities.User RemoveUser(string email)
         {
-            var search = context.Users.Where(user => user.UserId == user_id).FirstOrDefault();
+            var search = context.Users.Where(user => user.Email == email).FirstOrDefault();
             if (search != null)
             {
                 context.Users.Remove(search);// this will generate DELETE query of Sql to be passed to Database
