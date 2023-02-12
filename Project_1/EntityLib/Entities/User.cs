@@ -31,5 +31,5 @@ public partial class User
 
     public virtual ICollection<EducationDetail> EducationDetails { get; } = new List<EducationDetail>();
 
-    public virtual ICollection<Skill> Skills { get; } = new List<Skill>();
+    public virtual ICollection<Skills> Skills { get; } = new List<Skills>();
 }

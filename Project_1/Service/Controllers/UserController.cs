@@ -57,7 +57,7 @@ namespace Service.Controllers
                 if (search != null)
                     return Ok(search);
                 else
-                    return NotFound($"Restaurants with ID {Email} not available, please try with different id");
+                    return NotFound($"User with ID {Email} not available, please try with different id");
             }
             catch (SqlException ex)
             {

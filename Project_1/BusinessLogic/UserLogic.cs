@@ -30,7 +30,7 @@ namespace Business_Logic
         }
         public User GetUsersByUser_Email(string u)
         {
-            var search = _repo.GetAllUsers().Where(r => r.Email == u).FirstOrDefault();
+            var search = _repo.GetAllUsers().Where(r => r.Email == u).First();
             return Mapper.Map(search);
         }
 

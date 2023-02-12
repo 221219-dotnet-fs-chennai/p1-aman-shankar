@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Models
+﻿namespace Models
 {
     public class Skills
     {
         public int s_id { get; set; }
         public string skill_id { get; set; }
         public string skill_name { get; set; }
-        public Skills(int s_id, string skill_id, string skill_name)
+        public Skills(int s_id ,string skill_id, string skill_name)
         {
             this.s_id = s_id;
             this.skill_id = skill_id;
@@ -21,7 +14,7 @@ namespace Models
         public Skills() { }
         public override string ToString()
         {
-            return $"{s_id},{skill_id},{skill_name}";
+            return $"{skill_id},{skill_name}";
         }
 
         private readonly string connectionString;
