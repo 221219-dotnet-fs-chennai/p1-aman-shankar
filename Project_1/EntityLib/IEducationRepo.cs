@@ -8,5 +8,6 @@ namespace EntityLib
         public void AddEducation(EducationDetail education);
         public EducationDetail RemoveEducation(EducationDetail education);
         public void UpdateEducation(EducationDetail education);
+
     }
 }

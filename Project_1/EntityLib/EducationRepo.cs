@@ -5,6 +5,7 @@ namespace EntityLib
     public class EducationRepo : IEducationRepo
     {
         private readonly TrainerDbContext _context;
+
         public EducationRepo(TrainerDbContext context)
         {
             _context = context;

@@ -54,14 +54,9 @@ namespace Business_Logic
             try
             {
                 string id = userLogic.GetUsersByUser_Email(email).user_id;
-                EF.EducationDetail _entityEducation = _repo.GetEducations().Where(e => e.EducationId == id && e.EducationName == education).First();
-                var entityEducation = _repo.RemoveEducation(_entityEducation);
+                EF.EducationDetail entityEducation = _repo.GetEducations().Where(e => e.EducationId == id && e.EducationName == education).First();
                 if (entityEducation != null)
                 {
-                    if (edu.education_id != "string" && entityEducation.EducationId != edu.education_id)
-                    {
-                        entityEducation.EducationId = edu.education_id;
-                    }
                     if (edu.education_name != "string" && entityEducation.EducationName != edu.education_name)
                     {
                         entityEducation.EducationName = edu.education_name;

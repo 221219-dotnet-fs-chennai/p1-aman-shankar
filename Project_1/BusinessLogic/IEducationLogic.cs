@@ -8,5 +8,6 @@ namespace Business_Logic
         public IEnumerable<Education> GetEducations(string? email);
         public void UpdateEducation(string? email,string? education, Education edu);
         public Education RemoveEducation(string? email , string? education);
+
     }
 }
