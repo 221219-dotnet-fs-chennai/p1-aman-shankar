@@ -87,7 +87,7 @@ namespace Business_Logic
         /// </summary>
         /// <param name="s"></param>
         /// <returns>Models.Skills</returns>
-        public static Models.Skills Map(Data.Skill s)
+        public static Models.Skills Map(Data.Skills s)
         {
             return new Models.Skills()
             {
@@ -101,9 +101,9 @@ namespace Business_Logic
         /// </summary>
         /// <param name="s"></param>
         /// <returns>Data.Skills</returns>
-        public static Data.Skill Map(Models.Skills s)
+        public static Data.Skills Map(Models.Skills s)
         {
-            return new Data.Skill()
+            return new Data.Skills()
             {
                 SId = s.s_id,
                 SkillId = s.skill_id,
@@ -152,11 +152,11 @@ namespace Business_Logic
         {
             return users.Select(Map);
         }
-        public static IEnumerable<Models.Skills> Map(IEnumerable<Data.Skill> skills)
+        public static IEnumerable<Models.Skills> Map(IEnumerable<Data.Skills> skills)
         {
             return skills.Select(Map);
         }
-        public static IEnumerable<Data.Skill> Map(IEnumerable<Models.Skills> skills)
+        public static IEnumerable<Data.Skills> Map(IEnumerable<Models.Skills> skills)
         {
             return skills.Select(Map);
         }
