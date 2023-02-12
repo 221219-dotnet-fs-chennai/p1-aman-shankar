@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace EntityLib.Entities;
 
-namespace EntityLib.Entities;
-
-public partial class Skill
+public partial class Skills
 {
     public int SId { get; set; }
 

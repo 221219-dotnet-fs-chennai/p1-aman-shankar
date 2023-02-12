@@ -1,8 +1,6 @@
 ﻿using Business_Logic;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Caching.Memory;
 using Models;
 
 namespace Service.Controllers
@@ -12,54 +10,27 @@ namespace Service.Controllers
     public class SkillController : ControllerBase // controllerbase class has all methods and properties to handle HTTP Requests/responses
     {
         private readonly ISkillLogic _skillLogic;
-        private readonly IUserLogic _userLogic;
-        public SkillController(ISkillLogic skillLogic, IUserLogic userLogic)
+        //private readonly IUserLogic _userLogic;
+        public SkillController(ISkillLogic skillLogic)
         {
             _skillLogic = skillLogic;
-            _userLogic = userLogic;
+            //_userLogic = userLogic;
         }
 
-        [HttpGet("All_Skills")]
-        public ActionResult Get(string email)
-        {
-            var skillSearchedById = _userLogic.GetUsersByUser_Email(email);
-            return Ok(_skillLogic.GetSkills(skillSearchedById));
-        }
-
-        [HttpPost("Add_Skill")] // Trying to create a resource on the server
-        public ActionResult Add(string email, [FromBody] Skills newSkill)
+        [HttpGet("All_Skills/{Email}")]
+        public ActionResult Get([FromRoute]string? Email)
         {
             try
             {
-                var userSearchedByEmail = _userLogic.GetUsersByUser_Email(email);
-
-                return Created($"/api/User/{email}/Skill",
-                    _skillLogic.AddSkills(
-                            userSearchedByEmail, newSkill
-                            ));
-            }
-            catch (SqlException ex)
-            {
-                return BadRequest(ex.Message);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
-        }
-/*
-        [HttpPut("Update")]
-        public ActionResult Update(string s_id, [FromBody] Skills s)
-        {
-            try
-            {
-                if (!string.IsNullOrEmpty(s_id))
+                var skills = _skillLogic.GetSkill(Email);
+                if (skills != null)
                 {
-                    _skillLogic.UpdateSkill(s_id, s);
-                    return Ok(s);
+                    return Ok(skills);
                 }
                 else
-                    return BadRequest($"something wrong with {s.s_id} input, please try again!");
+                {
+                    return BadRequest("No Skills Available");
+                }
             }
             catch (SqlException ex)
             {
@@ -70,21 +41,63 @@ namespace Service.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpDelete("Delete")]
-        public ActionResult Delete(string s_id)
+
+        [HttpPost("Add_Skill/{email}")] // Trying to create a resource on the server
+        public ActionResult Add([FromRoute]string? email, [FromBody] Skills newSkill)
         {
             try
             {
-                if (!string.IsNullOrEmpty(s_id))
+                var newUserSkill = _skillLogic.AddSkill(email ,newSkill);
+
+                return CreatedAtAction("Add", newUserSkill);
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpPut("Update_Skill/{email}/{skill}")]
+        public ActionResult Update([FromRoute]string? email, [FromRoute] string? skill , [FromBody] Skills s)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(skill))
                 {
-                    var rest = _skillLogic.RemoveSkillByS_Id(s_id);
+                    _skillLogic.UpdateSkill(email,skill,s);
+                    return Ok(s);
+                }
+                else
+                    return BadRequest($"something wrong with {email} input, please try again!");
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpDelete("Delete_Skill/{email}/{skill}")]
+        public ActionResult Delete([FromRoute]string email , [FromRoute] string? skill)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(email))
+                {
+                    var rest = _skillLogic.RemoveSkill(email , skill);
                     if (rest != null)
                         return Ok(rest);
                     else
                         return NotFound();
                 }
                 else
-                    return BadRequest("Please add a valid s_id to be deleted");
+                    return BadRequest("Please add a valid Email to be deleted");
 
             }
             catch (SqlException ex)
@@ -95,7 +108,7 @@ namespace Service.Controllers
             {
                 return BadRequest(e.Message);
             }
-        }*/
+        }
 
     }
 }

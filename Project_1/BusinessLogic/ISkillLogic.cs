@@ -4,7 +4,9 @@ namespace Business_Logic
 {
     public interface ISkillLogic
     {
-        Skills AddSkills(User user ,Skills skill);
-        IEnumerable<Skills> GetSkills(User user);
+        public Skills AddSkill(string? email,Skills skill);
+        public IEnumerable<Skills> GetSkill(string? email);
+        public void UpdateSkill(string? email , string? skill, Skills skills);
+        public Skills RemoveSkill(string? email , string? skill);
     }
 }

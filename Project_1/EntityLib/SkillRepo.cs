@@ -1,5 +1,6 @@
 ﻿using EntityLib.Entities;
 
+
 namespace EntityLib
 {
     public class SkillRepo : ISkillRepo
@@ -9,21 +10,28 @@ namespace EntityLib
         {
             _context = context;
         }
-        public Skill AddSkills(User user, Skill skill)
+        public void AddSkill(Skills skills)
         {
-            _context.Skills.Add(new Skill()
-            {
-                SkillId = skill.SkillId,
-                SId = skill.SId,
-                SkillName = skill.SkillName,
-            }
-            );
+            _context.Skills.Add(skills);
+            _context.SaveChanges();
+        }
+
+        public IEnumerable<Skills> GetSkills()
+        {
+            return _context.Skills.ToList();
+        }
+
+        public Skills RemoveSkill(Skills skill)
+        {
+            _context.Skills.Remove(skill);
             _context.SaveChanges();
             return skill;
         }
-        public List<Skill> GetSkills(Entities.User user)
+
+        public void UpdateSkill(Skills skill)
         {
-            return _context.Skills.Where(x => x.SkillId == user.UserId).ToList();
+            _context.Update(skill);
+            _context.SaveChanges();
         }
     }
 }
