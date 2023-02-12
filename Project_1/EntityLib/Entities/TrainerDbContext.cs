@@ -19,7 +19,7 @@ public partial class TrainerDbContext : DbContext
 
     public virtual DbSet<EducationDetail> EducationDetails { get; set; }
 
-    public virtual DbSet<Skill> Skills { get; set; }
+    public virtual DbSet<Skills> Skills { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
 
@@ -30,7 +30,7 @@ public partial class TrainerDbContext : DbContext
     {
         modelBuilder.Entity<Company>(entity =>
         {
-            entity.HasKey(e => new { e.CompanyName, e.CId }).HasName("pk_company");
+            entity.HasKey(e => e.CId).HasName("pk_company");
 
             entity.ToTable("Company");
 
@@ -59,7 +59,7 @@ public partial class TrainerDbContext : DbContext
 
         modelBuilder.Entity<EducationDetail>(entity =>
         {
-            entity.HasKey(e => new { e.EducationName, e.EId }).HasName("pk_education");
+            entity.HasKey(e => e.EId).HasName("pk_education");
 
             entity.ToTable("Education_Details");
 
@@ -90,9 +90,9 @@ public partial class TrainerDbContext : DbContext
                 .HasConstraintName("fk_education");
         });
 
-        modelBuilder.Entity<Skill>(entity =>
+        modelBuilder.Entity<Skills>(entity =>
         {
-            entity.HasKey(e => new { e.SkillName, e.SId }).HasName("pk_skill");
+            entity.HasKey(e => e.SId).HasName("pk_skill");
 
             entity.Property(e => e.SkillName)
                 .HasMaxLength(30)
