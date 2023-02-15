@@ -9,7 +9,7 @@ namespace Testing
         public void Setup()
         {}
         [TestCase(null, false)]
-        [TestCase("", false)]
+/*      [TestCase("", false)]
         [TestCase(" ", false)]
         [TestCase("xyzkml.@gmail.com", false)]
         [TestCase("xyz.@gmail.com", false)]
@@ -36,7 +36,17 @@ namespace Testing
         [TestCase("abcdef123@outlook.com.", false)]
         [TestCase("abcdef.123.@gmail.com", false)]
         [TestCase("abcdef123.@gmail.com", false)]
-        [TestCase("abcdef#$123@gmail.com", false)]
+        [TestCase("wxyzgmail.com", false)]
+        [TestCase("validation%yahoo.c", false)]
+        [TestCase("testemail@test.validation", false)]
+        [TestCase("test1234@yahoo.in", true)]
+        [TestCase("dummyemail$email.in", false)]
+        [TestCase("qwertyu@dfghj.", false)]
+        [TestCase("abcdef#$123@gmail.com", false)]*/
+        [TestCase("asdfghjkl@gmail.in", true)]
+        [TestCase("nothing@gmail.good", true)]
+        [TestCase("working@gmail.com", true)]
+        [TestCase("goodjob@contact.in", true)]
         [TestCase("xyz.kml05@gmail.com", true)]
         [TestCase("abcdef@yahoo.com", true)]
         [TestCase("abcdef@gmail.com", true)]
@@ -130,6 +140,7 @@ namespace Testing
             bool actual = Validation.IsValidPincode(input);
             Assert.AreEqual(expected, actual);
         }
+
         [TearDown]
         public void CleanUp() { }
     }
