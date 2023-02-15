@@ -59,6 +59,7 @@ namespace Testing
             Models.Education edu = new Models.Education();
             var actual = Mapper.Map(edu);
             Assert.That(actual.GetType(), Is.EqualTo(typeof(EntityLib.Entities.EducationDetail)));
+
         }
     }
 }
