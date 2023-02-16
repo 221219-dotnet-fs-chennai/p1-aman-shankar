@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-namespace Models
+﻿namespace Models
 {
     public interface IUserRepo<T>
     {
@@ -27,8 +26,13 @@ namespace Models
         /// <param name="user"></param>
         /// <returns>updated User</returns>
         T UpdateUser(T user);
+       // bool UserLogin(string eMail, string pass);
 
+        /*/// <summary>
+        /// Adding signup details
+        /// </summary>
+        /// <param name="_data"></param>
+        T AddUserSignUp(T _data);*/
 
-        
     }
 }
