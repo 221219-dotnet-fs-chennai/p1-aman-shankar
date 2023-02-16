@@ -10,8 +10,9 @@ namespace EntityLib
 
         readonly TrainerDbContext context;
 
-        public UserRepo(TrainerDbContext _context) {
-            context= _context;
+        public UserRepo(TrainerDbContext _context)
+        {
+            context = _context;
         }
         public List<Entities.User> GetAllUsers()
         {
@@ -24,6 +25,7 @@ namespace EntityLib
         /// <returns>Returns the User which was added</returns>
         public Entities.User AddUser(Entities.User user)
         {
+
             context.Users.Add(user);// no need to add any sql INSERT query just call Add method and it will create INSERT query behind the scenes
             context.SaveChanges(); // this method will fire the query to DB and persist the changes
             return user;
