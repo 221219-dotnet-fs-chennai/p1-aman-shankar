@@ -14,12 +14,16 @@ namespace Business_Logic
         {
             return Mapper.Map(_repo.GetAllUsers());
         }
+        public User GetUsersByUser_Email(string u)
+        {
+            var search = _repo.GetAllUsers().Where(r => r.Email == u).First();
+            return Mapper.Map(search);
+        }
 
         User IUserLogic.AddUser(User u)
         {
             return Mapper.Map(_repo.AddUser(Mapper.Map(u)));
         }
-
         User IUserLogic.RemoveUserByUser_Email(string u)
         {
             var deletedUser = _repo.RemoveUser(u);
@@ -28,12 +32,6 @@ namespace Business_Logic
             else
                 return null;
         }
-        public User GetUsersByUser_Email(string u)
-        {
-            var search = _repo.GetAllUsers().Where(r => r.Email == u).First();
-            return Mapper.Map(search);
-        }
-
         User IUserLogic.UpdateUser(string email, User u)
         {
             var user = (from usr in _repo.GetAllUsers()
