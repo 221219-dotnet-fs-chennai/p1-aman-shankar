@@ -2,7 +2,6 @@ using Business_Logic;
 using EntityLib;
 using Microsoft.EntityFrameworkCore;
 using Models;
-
 using EntityLib.Entities;
 
 
@@ -30,6 +29,13 @@ builder.Services.AddScoped<ICompanyRepo, CompanyRepo>();
 
 builder.Services.AddScoped<IEducationLogic, EducationLogic>();
 builder.Services.AddScoped<IEducationRepo, EducationRepo>();
+
+builder.Services.AddScoped<IUserLogin_Logic, UserLogin_Logic>();
+builder.Services.AddScoped<IUserLogin_Repo, UserLogin_Repo>();
+builder.Services.AddScoped<Validation>();
+
+builder.Services.AddScoped<IFilterLogic, FilterLogic>();
+builder.Services.AddScoped<ILogic, Logic>();
 
 var app = builder.Build();
 

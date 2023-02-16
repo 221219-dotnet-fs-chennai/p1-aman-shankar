@@ -62,8 +62,8 @@ SELECT [e_id],[education_id],[education_name],[institute_name],[grade],[duration
 --Inserting Data Into [User] Table
 
 INSERT INTO [User]([user_id], [Email] ,[password] ,[first_name],[middle_name], [last_name] , [gender] , [pincode] , [website] , [mobile_number] , [about_me]) 
-VALUES ('222' ,'venkat123@gmail.com', 'Venkat123@','Chuka','Venkat','Teza','Others',564721,'http:/chukka@google.com',9876543210,'I am a quick learner.'),
-('321' , 'arshad123@gmail.com' , 'Arshad123@' , 'Arshad' , 'Ahmed' , 'Khan','Female' , 500004,'http:/ahmed.com' , 8767876787,'Everyone Knows About me.'),
+VALUES ('222' ,'venkat123@gmail.com', 'Venkat123@','Chuka','Venkat','Teza','Others',800006,'http:/chukka@google.com',9876543210,'I am a quick learner.'),
+('321' , 'arshad123@gmail.com' , 'Arshad123@' , 'Arshad' , 'Ahmed' , 'Khan','Male' , 800006,'http:/ahmed.com' , 8767876787,'Everyone Knows About me.'),
 ('333' , 'rizwan123@gmail.com' , 'Rizwan123@' , 'Rizwan' , 'Ahmed' , 'Khan','Male' , 556004,'http:/rizwan.com' , 987678543,'Hard Working Person.');
 
 --Inserting Data Into [Skills] Table
@@ -106,3 +106,4 @@ drop table [User]
 drop table [Skills]
 drop table [Company]
 drop table [Education_Details]
+
