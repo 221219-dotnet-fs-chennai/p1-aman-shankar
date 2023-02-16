@@ -10,6 +10,8 @@ namespace Business_Logic
         /// <returns></returns>
         IEnumerable<User> GetAllUsers();
         User GetUsersByUser_Email(string email);
+        /*IEnumerable<User> GetUsersByUser_Gender(string gender);
+        User GetUsersByUser_Pincode(string pincode);*/
         /// <summary>
         /// Add user to the database
         /// </summary>
@@ -18,5 +20,6 @@ namespace Business_Logic
         User AddUser(User u);
         User RemoveUserByUser_Email(string email);
         User UpdateUser(string email, User u);
+        //public bool UserLogin(string eMail, string pass);
     }
 }
