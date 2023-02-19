@@ -48,8 +48,8 @@ namespace Service.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpGet("Email/{Email}")]
-        public ActionResult GetByEmail([FromRoute] string Email)
+        [HttpGet("Email")]
+        public ActionResult GetByEmail([FromQuery] string Email)
         {
             try
             {
@@ -69,8 +69,8 @@ namespace Service.Controllers
             }
 
         }
-/*        [HttpGet("Pincode/{Pincode}")]
-        public ActionResult GetByPincode([FromRoute] string Pincode)
+/*        [HttpGet("Pincode")]
+        public ActionResult GetByPincode([FromQuery] string Pincode)
         {
             try
             {
@@ -90,8 +90,8 @@ namespace Service.Controllers
             }
 
         }
-        [HttpGet("Gender/{Gender}")]
-        public ActionResult GetByGender([FromRoute] string Gender)
+        [HttpGet("Gender")]
+        public ActionResult GetByGender([FromQuery] string Gender)
         {
             try
             {

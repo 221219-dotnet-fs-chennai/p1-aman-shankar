@@ -8,6 +8,6 @@ namespace Business_Logic
 {
     public interface IUserLogin_Logic
     {
-        public bool UserLogin(string eMail, string pass);
+        public bool UserLogin(string eMail, string pass , string id);
     }
 }

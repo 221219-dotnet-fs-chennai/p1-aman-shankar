@@ -7,7 +7,7 @@ namespace EntityLib
     public class UserLogin_Repo : IUserLogin_Repo
     {
         TrainerDbContext context = new TrainerDbContext();
-        public bool UserLogin(string eMail, string pass)
+        public bool UserLogin(string eMail, string pass , string id)
         {
             var result = context.Users;
             var query = result.FirstOrDefault(e => e.Email == eMail);
@@ -15,7 +15,8 @@ namespace EntityLib
             if (query != null)
             {
                 var query1 = result.FirstOrDefault(p => p.Password == pass);
-                if(query1 != null)
+                var query2 = result.FirstOrDefault(i => i.UserId == id);
+                if(query1 != null && query2 != null)
                 {
                     Console.WriteLine("Trainer Login !");
                     return true;

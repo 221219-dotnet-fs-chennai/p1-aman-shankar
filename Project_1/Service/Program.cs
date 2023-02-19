@@ -37,6 +37,11 @@ builder.Services.AddScoped<Validation>();
 builder.Services.AddScoped<IFilterLogic, FilterLogic>();
 builder.Services.AddScoped<ILogic, Logic>();
 
+// Enable CORS for any origin
+var AllowAllPolicy = "AllowAllPolicy";
+builder.Services.AddCors(options =>
+    options.AddPolicy(AllowAllPolicy, policy => { policy.WithOrigins("*").AllowAnyHeader().AllowAnyMethod(); }));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -45,6 +50,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//use cors
+app.UseCors(AllowAllPolicy);
 
 app.UseHttpsRedirection();
 

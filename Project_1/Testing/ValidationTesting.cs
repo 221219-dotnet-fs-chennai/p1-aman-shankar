@@ -9,40 +9,6 @@ namespace Testing
         public void Setup()
         {}
         [TestCase(null, false)]
-/*      [TestCase("", false)]
-        [TestCase(" ", false)]
-        [TestCase("xyzkml.@gmail.com", false)]
-        [TestCase("xyz.@gmail.com", false)]
-        [TestCase("xyzmail.com", false)]
-        [TestCase("xyz@mail", false)]
-        [TestCase("xyz#@mail.com", false)]
-        [TestCase("xyz@@gmail.com", false)]
-        [TestCase("xyz-@gmail.com", false)]
-        [TestCase("xyz_@gmail.com", false)]
-        [TestCase("xyz!@gmail.com", false)]
-        [TestCase("xyz$@gmail.com", false)]
-        [TestCase("xyz.@gmail.com", false)]
-        [TestCase("xyz.@.gmail.com", false)]
-        [TestCase("xyz@#gmail.com", false)]
-        [TestCase("xyz@.gmail.com", false)]
-        [TestCase("xyz.@gmail.com", false)]
-        [TestCase("xyz@gmail.com.", false)]
-        [TestCase("xyz@gmail.com!", false)]
-        [TestCase("xyz@gmail.com#", false)]
-        [TestCase("_@email.com", false)]
-        [TestCase("@email.com", false)]
-        [TestCase("@gmail.com", false)]
-        [TestCase("@gmail@yahoo.com", false)]
-        [TestCase("abcdef123@outlook.com.", false)]
-        [TestCase("abcdef.123.@gmail.com", false)]
-        [TestCase("abcdef123.@gmail.com", false)]
-        [TestCase("wxyzgmail.com", false)]
-        [TestCase("validation%yahoo.c", false)]
-        [TestCase("testemail@test.validation", false)]
-        [TestCase("test1234@yahoo.in", true)]
-        [TestCase("dummyemail$email.in", false)]
-        [TestCase("qwertyu@dfghj.", false)]
-        [TestCase("abcdef#$123@gmail.com", false)]*/
         [TestCase("asdfghjkl@gmail.in", true)]
         [TestCase("nothing@gmail.good", true)]
         [TestCase("working@gmail.com", true)]
@@ -55,36 +21,24 @@ namespace Testing
         [TestCase("abcdef.123@gmail.com", true)]
         [Test]
 
+
         public void Test1(string input, bool expected)
         {
             bool actual = Validation.EmailIsValid(input);
             Assert.AreEqual(expected, actual);
         }
-
         [TestCase(null, false)]
-/*      [TestCase("", false)]
-        [TestCase(" ", false)]
-        [TestCase("xyz", false)]
-        [TestCase("xyzabc", false)]
-        [TestCase("xyzabcklm", false)]
-        [TestCase("xyzabcklm!", false)]
-        [TestCase("xyzabcklm!@", false)]
-        [TestCase("98745263", false)]
-        [TestCase("98745a!", false)]
-        [TestCase("abcd12@#", true)]
-        [TestCase("xyzabcklm!@3", true)]
-        [TestCase("98745aB_", true)]
-*/
         [TestCase("Aman123@", true)]
         [TestCase("Venkat33@", true)]
         [TestCase("Arshad765@", true)]
         [Test]
+
+
         public void Test2 (string input, bool expected)
         {
             bool actual = Validation.IsValidPassword(input);
             Assert.AreEqual(expected, actual);
         }
-
         [TestCase(null, false)]
         [TestCase("", false)]
         [TestCase(" ", false)]
@@ -105,24 +59,12 @@ namespace Testing
         [TestCase("9234567890", true)]
         [Test]
 
+
         public void Test3(string input, bool expected)
         {
             bool actual = Validation.IsValidMobileNumber(input);
             Assert.AreEqual(expected, actual);
         }
-
-/*
-        [TestCase(null, false)]
-        [TestCase("", false)]
-        [TestCase(" ", false)]
-        [TestCase("a", false)]
-        [TestCase("0", false)]
-        [TestCase("0.", false)]
-        [TestCase("0.!", false)]
-        [TestCase("@", false)]
-        [TestCase("2", false)]
-        [TestCase("5600011", false)]
-*/
         [TestCase("560001", true)]
         [TestCase("100021", true)]
         [TestCase("200021", true)]
@@ -135,12 +77,12 @@ namespace Testing
         [TestCase("900021", true)]
         [Test]
 
+
         public void Test4(string input, bool expected)
         {
             bool actual = Validation.IsValidPincode(input);
             Assert.AreEqual(expected, actual);
         }
-
         [TearDown]
         public void CleanUp() { }
     }

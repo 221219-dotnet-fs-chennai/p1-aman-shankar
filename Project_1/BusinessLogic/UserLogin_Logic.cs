@@ -11,9 +11,10 @@ namespace Business_Logic
         {
             _repo = repo;
         }
-        public bool UserLogin(string eMail, string pass)
+        public bool UserLogin(string eMail, string pass, string id)
         {
-            return _repo.UserLogin(eMail, pass);
+            return _repo.UserLogin(eMail, pass , id);
         }
+        
     }
 }

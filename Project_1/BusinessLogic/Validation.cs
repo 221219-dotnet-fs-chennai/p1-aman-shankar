@@ -59,12 +59,12 @@ namespace Business_Logic
             }
             return false;
         }
-        public bool CheckUserExists(string email, string password)
+        public bool CheckUserExists(string email, string password , string id)
         {
             try
             {
                 var trainer = context.Users.Where(item => item.Email == email).First();
-                if (trainer.Email == email && trainer.Password == password)
+                if (trainer.Email == email && trainer.Password == password && trainer.UserId == id)
                 {
                     return true;
                 }
@@ -79,33 +79,20 @@ namespace Business_Logic
             }
             return false;
         }
-        /*internal bool CheckEmailUserIdExists(string email, string user_id)
+        /*public bool CheckIdEmailExists(string email, string user_id)
         {
-            using SqlConnection con = new SqlConnection(connectionString);
-            try
-            {
-                con.Open();
-                string query = "SELECT [Email],[user_id] FROM [User]";
-                SqlCommand command = new(query, con);
-                try
+            try { 
+                var trainer = context.Users.Where(item => item.Email == email).First();
+                if (trainer.Email == email && trainer.UserId == user_id)
                 {
-                    Dictionary<string, string> dictionary = new Dictionary<string, string>();
-                    SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        if (!dictionary.ContainsKey(reader.GetString(0))) dictionary.Add(reader.GetString(0), reader.GetString(1));
-                    }
-                    while (dictionary.Count > 0)
-                    {
-                        return dictionary.Any(Entry => Entry.Key == email && Entry.Value == user_id);
-                    }
+                    return true;
                 }
-                catch (Exception ex)
+                else
                 {
-                    Console.WriteLine(ex.Message);
+                    return false;
                 }
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
                 Console.WriteLine(ex.Message);
             }

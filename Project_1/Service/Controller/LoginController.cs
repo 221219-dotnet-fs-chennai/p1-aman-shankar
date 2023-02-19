@@ -17,9 +17,9 @@ namespace Service.Properties
             _valid = valid;
         }
         [HttpGet("Login")]
-        public ActionResult Login(string Email, string Password)
+        public ActionResult Login(string Email, string Password , string User_Id)
         {
-            if (!_valid.CheckUserExists(Email, Password))
+            if (!_valid.CheckUserExists(Email, Password , User_Id))
             {
                 return Unauthorized("No Details Found");
             }

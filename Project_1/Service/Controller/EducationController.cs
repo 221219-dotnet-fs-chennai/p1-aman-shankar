@@ -15,8 +15,8 @@ namespace Service.Controllers
         {
             _educationLogic = educationLogic;
         }
-        [HttpGet("All_Education/{Email}")]
-        public ActionResult Get([FromRoute] string? Email) 
+        [HttpGet("All_Education")]
+        public ActionResult Get([FromQuery] string? Email) 
         {
             try
             {
@@ -39,8 +39,8 @@ namespace Service.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPost("Add_Education/{email}")]
-        public ActionResult Add([FromRoute] string? email, [FromBody] Education newEducation)
+        [HttpPost("Add_Education")]
+        public ActionResult Add([FromQuery] string? email, [FromBody] Education newEducation)
         {
             try
             {
@@ -57,8 +57,8 @@ namespace Service.Controllers
                 return BadRequest(e.Message);
             }
         }
-        [HttpPut("Update_Education/{email}/{education}")]
-        public ActionResult Update([FromRoute] string? email, [FromRoute] string? education, [FromBody] Education e)
+        [HttpPut("Update_Education")]
+        public ActionResult Update([FromQuery] string? email, [FromQuery] string? education, [FromBody] Education e)
         {
             try
             {
@@ -79,8 +79,8 @@ namespace Service.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpDelete("Delete_Education/{email}/{education}")]
-        public ActionResult Delete([FromRoute] string email, [FromRoute] string? education)
+        [HttpDelete("Delete_Education")]
+        public ActionResult Delete([FromQuery] string email, [FromQuery] string? education)
         {
             try
             {

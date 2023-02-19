@@ -17,8 +17,8 @@ namespace Service.Controllers
             //_userLogic = userLogic;
         }
 
-        [HttpGet("All_Skills/{Email}")]
-        public ActionResult Get([FromRoute]string? Email)
+        [HttpGet("All_Skills")]
+        public ActionResult Get([FromQuery]string? Email)
         {
             try
             {
@@ -42,8 +42,8 @@ namespace Service.Controllers
             }
         }
 
-        [HttpPost("Add_Skill/{email}")] // Trying to create a resource on the server
-        public ActionResult Add([FromRoute]string? email, [FromBody] Skills newSkill)
+        [HttpPost("Add_Skill")] // Trying to create a resource on the server
+        public ActionResult Add([FromQuery] string? email, [FromBody] Skills newSkill)
         {
             try
             {
@@ -61,8 +61,8 @@ namespace Service.Controllers
             }
         }
 
-        [HttpPut("Update_Skill/{email}/{skill}")]
-        public ActionResult Update([FromRoute]string? email, [FromRoute] string? skill , [FromBody] Skills s)
+        [HttpPut("Update_Skill")]
+        public ActionResult Update([FromQuery] string? email, [FromQuery] string? skill , [FromBody] Skills s)
         {
             try
             {
@@ -83,8 +83,8 @@ namespace Service.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpDelete("Delete_Skill/{email}/{skill}")]
-        public ActionResult Delete([FromRoute]string email , [FromRoute] string? skill)
+        [HttpDelete("Delete_Skill")]
+        public ActionResult Delete([FromQuery] string email , [FromQuery] string? skill)
         {
             try
             {

@@ -14,8 +14,8 @@ namespace Service.Controllers
         {
             _companyLogic = companyLogic;
         }
-        [HttpGet("All_Companies/{Email}")]
-        public ActionResult Get([FromRoute] string? Email)
+        [HttpGet("All_Companies")]
+        public ActionResult Get([FromQuery] string? Email)
         {
             try
             {
@@ -38,8 +38,8 @@ namespace Service.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPost("Add_Company/{email}")]
-        public ActionResult Add([FromRoute] string? email, [FromBody] Company newCompany)
+        [HttpPost("Add_Company")]
+        public ActionResult Add([FromQuery] string? email, [FromBody] Company newCompany)
         {
             try
             {
@@ -56,8 +56,8 @@ namespace Service.Controllers
                 return BadRequest(e.Message);
             }
         }
-        [HttpPut("Update_Company/{email}/{company}")]
-        public ActionResult Update([FromRoute] string? email, [FromRoute] string? company, [FromBody] Company c)
+        [HttpPut("Update_Company")]
+        public ActionResult Update([FromQuery] string? email, [FromQuery] string? company, [FromBody] Company c)
         {
             try
             {
@@ -78,8 +78,8 @@ namespace Service.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpDelete("Delete_Company/{email}/{company}")]
-        public ActionResult Delete([FromRoute] string email, [FromRoute] string? company)
+        [HttpDelete("Delete_Company")]
+        public ActionResult Delete([FromQuery] string email, [FromQuery] string? company)
         {
             try
             {
