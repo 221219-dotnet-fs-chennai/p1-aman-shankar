@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="Add_Details.js"></script>
+</head>
+<style>
+  input[type="text"] {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: 0.5s;
+  }
+
+  .log {
+    margin: 0;
+    font-size: 24px;
+    color: black;
+    text-align: center;
+    margin-bottom: 20px
+  }
+
+  .form-group {
+    width: 50%;
+    margin: auto;
+  }
+
+  .submit {
+    width: 50%;
+    transform: translate(50%,50%);
+    background-color: #333;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+  }
+
+  .submit:hover {
+    background-color: #ccc;
+    color: black;
+  }
+
+  body {
+    background-color: #FCEDDA;
+  }
+</style>
+
+<body>
+
+  <div class="log">---- Trainer Sign Up -----</div>
+  <form id="addUser"></form>
+  <div class="form-group">
+    <label for="user-id"> User-Id (Only 3-Digit) :- </label>
+    <input required="" name="user-id" placeholder="Enter User-Id (It should be in 3-digit)" id="id" type="text">
+  </div>
+  <div class="form-group">
+    <label for="email"> Email :- </label>
+    <input required="" name="email" placeholder="Enter Your Email" id="mail" type="text">
+  </div>
+  <div class="form-group">
+    <label for="password"> Password :- </label>
+    <input required="" name="password" placeholder="Password(8 characters-contain at least one upper & lower case letter, a number & a symbol)" id="pass" type="text">
+  </div>
+  <div class="form-group">
+    <label for="firstname">First-Name :- </label>
+    <input required="" name="firstname" placeholder="Enter Your First-Name" id="fname" type="text">
+  </div>
+  <div class="form-group">
+    <label for="middlename">Middle-Name :- </label>
+    <input required="" name="middlename" placeholder="Enter Your Middle-Name" id="mname" type="text">
+  </div>
+  <div class="form-group">
+    <label for="lastname">Last-Name :- </label>
+    <input required="" name="lastname" placeholder="Enter Your Last-Name" id="lname" type="text">
+  </div>
+  <div class="form-group">
+    <label for="gender">Gender :- </label>
+    <input required="" name="gender" placeholder="Enter Your Gender" id="gen" type="text">
+  </div>
+  <div class="form-group">
+    <label for="pincode">Pincode :- </label>
+    <input required="" name="pincode" placeholder="Enter Your Pincode" id="pin" type="text">
+  </div>
+  <div class="form-group">
+    <label for="website">Website :- </label>
+    <input required="" name="website" placeholder="Enter Your Website" id="web" type="text">
+  </div>
+  <div class="form-group">
+    <label for="mobile.no">Mobile-Number :- </label>
+    <input required="" name="mobile.no" placeholder="Enter Your Mobile-Number" id="mob" type="text">
+  </div>
+  <div class="form-group">
+    <label for="aboutme">About-Me :- </label>
+    <input required="" name="aboutme" placeholder="Enter About-Me" id="me" type="text">
+  </div>
+  <div class="form-group">
+    <button class="submit" onclick="addUser()">Submit</button>
+  </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function logout() {
+            if (confirm("Logout")==true) {
+                localStorage.clear()
+                window.location.href = "Login_Page.html"
+            } else {
+                window.location.href = "Home.html"
+            }
+        }
+    </script>
+</head>
+<style>
+    .grid_container {
+        margin: auto;
+        width: fit-content;
+        display: inline-grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        background-color: #3b404e;
+        padding: 10px;
+    }
+
+    .centre {
+        margin: 0;
+        position: absolute;
+        margin-top: 25%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 20px
+    }
+
+    .item {
+        background-color: #1EAAFC;
+        width: 300px;
+        height: 300px;
+        border: 6px solid #171717;
+        padding: 30px;
+        font-size: 30px;
+        text-align: center;
+        border-radius: 8px;
+    }
+
+    .log {
+        margin: 0;
+        font-size: 30px;
+        color: #040b34;
+    }
+
+    #link {
+        text-decoration: none;
+        padding: 2px;
+        width: 20%;
+        border: 1px rgb(0, 0, 0) solid;
+        border-radius: 9px;
+        background-color: #222222;
+        color: #fff;
+        margin-bottom: 10px;
+    }
+
+    #link:hover {
+        background-color: #8dd2d2;
+        color: black;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 16px;
+        border: 1px solid #000000;
+        border-radius: 4px;
+        box-sizing: border-box;
+        transition: 0.5s;
+    }
+
+    body {
+        background-color: #3b404e;
+    }
+</style>
+
+<body>
+    <button type="text" onclick="logout()"><strong>Logout</strong></button>
+    <div class="centre grid_container">
+        <div class="item">
+            <div class="log">Trainer-Info</div>
+            <div class="form-group">
+                <a href="Personal-Details.html" id="link">Personal-Deatils</a>
+            </div>
+            <br>
+            <div class="form-group">
+                <a href="Modify-Details.html" id="link">Modify-Details</a>
+            </div>
+            <br>
+            <div class="form-group">
+                <a href="Delete-Details.html" id="link">Delete-Details</a>
+            </div>
+            <br>
+        </div>
+        <div class="item">
+            <div class="log">Education-Info</div>
+            <div class="form-group">
+                <a href="Education-Detail.html" id="link">Education-Details</a>
+            </div>
+            <br>
+            <div class="form-group">
+                <a href="Add-Education.html" id="link">Add-Education</a>
+            </div>
+            <br>
+            <div class="form-group">
+                <a href="Modify-Education.html" id="link">Modify-Education</a>
+            </div>
+            <br>
+            <div class="form-group">
+                <a href="Delete-Education.html" id="link">Delete-Education</a>
+            </div>
+            <br>
+        </div>
+        <div class="item">
+            <div class="log">Skill-Info</div>
+            <div class="form-group">
+                <a href="Skill-Detail.html" id="link">Skill-Deatils</a>
+            </div>
+            <br>
+            <div class="form-group">
+                <a href="Add-Skill.html" id="link">Add-Skill</a>
+            </div>
+            <br>
+            <div class="form-group">
+                <a href="Modify-Skill.html" id="link">Modify-Skill</a>
+            </div>
+            <br>
+            <div class="form-group">
+                <a href="Delete-Skill.html" id="link">Delete-Skill</a>
+            </div>
+            <br>
+        </div>
+        <div class="item">
+            <div class="log">Company-Info</div>
+            <div class="form-group">
+                <a href="Company-Detail.html" id="link">Company-Deatils</a>
+            </div>
+            <br>
+            <div class="form-group">
+                <a href="Add-Company.html" id="link">Add-Company</a>
+            </div>
+            <br>
+            <div class="form-group">
+                <a href="Modify-Company.html" id="link">Modify-Company</a>
+            </div>
+            <br>
+            <div class="form-group">
+                <a href="Delete-Company.html" id="link">Delete-Company</a>
+            </div>
+            <br>
+        </div>
+    </div>
+</body>
+
+</html>

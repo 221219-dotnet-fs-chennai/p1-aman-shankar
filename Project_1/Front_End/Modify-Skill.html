@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="Modify_Skill.js"></script>
+</head>
+<style>
+  input[type="text"] {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: 0.5s;
+  }
+
+  .log {
+    margin: 0;
+    font-size: 24px;
+    color: black;
+    text-align: center;
+    margin-bottom: 20px
+  }
+
+  .form-group {
+    width: 50%;
+    margin: auto;
+  }
+
+  .submit {
+    width: 50%;
+    transform: translate(50%, 50%);
+    background-color: #333;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .submit:hover {
+    background-color: #ccc;
+    color: black;
+  }
+
+  body {
+    background-color: #FCEDDA;
+  }
+</style>
+
+<body>
+
+  <div class="log">----Modify Skill----</div>
+  <form id="modifySkill">
+    <div class="form-group">
+      <label for="username">Email :</label>
+      <input required="" placeholder="Enter Your Email" id="email" type="text">
+    </div>
+    <div class="form-group">
+      <label for="skillname">Old_Skill-Name :</label>
+      <input required="" name="skillname" placeholder="Enter Your Old Skill-Name" id="osname" type="text">
+    </div>
+    <div class="form-group">
+      <label for="skillname">New_Skill-Name :</label>
+      <input required="" name="skillname" placeholder="Enter Your New Skill-Name" id="nsname" type="text">
+    </div>
+    <div class="form-group">
+      <button class="submit" onclick="modifySkill()">Submit</button>
+    </div>
+    </div>
+  </form>
+</body>
+
+</html>

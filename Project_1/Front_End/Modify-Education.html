@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="Modify_Education.js"></script>
+</head>
+<style>
+  input[type="text"] {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: 0.5s;
+  }
+
+  .log {
+    margin: 0;
+    font-size: 24px;
+    color: black;
+    text-align: center;
+    margin-bottom: 20px
+  }
+
+  .form-group {
+    width: 50%;
+    margin: auto;
+  }
+
+  .submit {
+    width: 50%;
+    transform: translate(50%,50%);
+    background-color: #333;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .submit:hover {
+    background-color: #ccc;
+    color: black;
+  }
+
+  body {
+    background-color: #FCEDDA;
+  }
+</style>
+
+<body>
+
+  <div class="log">----Modify Education Details----</div>
+  <form id="modifyEducation">
+    <div class="form-group">
+      <label for="educationname">Old_Degree-Name:</label>
+      <input required="" name="educationname" placeholder="Enter Your Old Degree-Name" id="oename" type="text">
+    </div>
+  <div class="form-group">
+    <label for="educationname">New_Degree-Name:</label>
+    <input required="" name="educationname" placeholder="Enter Your New Degree-Name" id="nename" type="text">
+  </div>
+  <div class="form-group">
+    <label for="institutename">Institute-Name:</label>
+    <input required="" name="institutename" placeholder="Enter Your Institute-Name" id="iname" type="text">
+  </div>
+  <div class="form-group">
+    <label for="grade">Grade/Percentage:</label>
+    <input required="" name="grade" placeholder="Enter Your Grade/Percentage" id="grade" type="text">
+  </div>
+  <div class="form-group">
+    <label for="duration">Duration:</label>
+    <input required="" name="duration" placeholder="Duration" id="duration" type="text">
+  </div>
+  <div class="form-group">
+    <button class="submit" onclick="modifyEducation()">Submit</button>
+  </div>
+</div>
+</form>
+</body>
+
+</html>
