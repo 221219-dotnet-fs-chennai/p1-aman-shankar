@@ -1,0 +1,147 @@
+<!-- <h2>{{title}}</h2> -->
+<!-- <app-sample></app-sample> -->
+<!-- <hr>
+<h1>Alert Using Bootstarp</h1>
+<hr>
+<p>
+	<ngb-alert [dismissible]="false">
+		<strong>Warning!</strong> Better check yourself, you're not looking too good.
+	</ngb-alert>
+</p>
+
+<h2 *ngIf="status; then ifpart else elsepart "></h2>
+
+<ng-template #elsepart>
+  <h2>"Unable to fetch the title"</h2>
+</ng-template>
+<ng-template #ifpart>
+  <h2>This is the statement gets executed in if part</h2>
+</ng-template>
+
+<ng-template [ngIf]="color=='Green'">
+  <h2 style="color:green;">Green</h2>
+</ng-template>
+<ng-template [ngIf]="color=='Yellow'">
+  <h2 style="color:yellow;">Yellow</h2>
+</ng-template>
+<ng-template [ngIf]="color=='Blue'">
+  <h2 style="color:blue;">Blue</h2>
+</ng-template>
+<ng-template [ngIf]="color=='Red'">
+  <h2 style="color:red;">Red</h2>
+</ng-template>
+
+<button (click)="ChangeColor()">Button</button>
+
+<div [ngSwitch]='colors'>
+  <h2 *ngSwitchCase="'Red'" style="color:red;">Red</h2>
+  <h2 *ngSwitchCase="'Purple'" style="color:purple;">Purple</h2>
+  <h2 *ngSwitchCase="'Yellow'" style="color:yellow;">Yellow</h2>
+  <h2 *ngSwitchCase="'Blue'" style="color:blue;">Blue</h2>
+  <h2 *ngSwitchCase="'Orange'" style="color:orange;">Orange</h2>
+  <h2 *ngSwitchCase="'Indigo'" style="color:indigo;">indigo</h2>
+  <h2 *ngSwitchDefault>Default</h2>
+</div>
+
+<hr>
+<h1>Looping</h1>
+<hr>
+<ul>
+  <li *ngFor="let associates of userarray">{{associates}}</li>
+</ul>
+<ul>
+  <li *ngFor="let associates of userlist">{{associates}}</li>
+</ul>
+
+<table>
+  <thead>
+    <td>Name</td>
+    <td>Salary</td>
+    <td>Location</td>
+    <td>Skillset</td>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ass_details of userlist">
+      <td>{{ass_details.name}}</td>
+      <td>{{ass_details.salary}}</td>
+      <td>{{ass_details.location}}</td>
+      <td>
+        <ul>
+          <li *ngFor="let skills of ass_details.skillset"> {{skills}} </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+<h1>Forms</h1>
+<hr>
+
+<form #basicform='ngForm' (submit)=getData(basicform.value)>
+  <input ngModel type="text" 
+          name="Username" 
+          placeholder="Enter username">
+  <input ngModel type="text" 
+          name="EmailId" 
+          placeholder="Enter EmailId">
+  <input ngModel type="text" 
+          name="Phoneno" 
+          placeholder="Enter Mobile no">
+  <button type="submit">Submit</button>
+</form>
+
+<div>
+	<ul>
+	<li>
+		{{dataObject.Username}}
+	</li>
+	<li>
+		{{dataObject.EmailId}}
+	</li>
+	<li>
+		{{dataObject.Phoneno}}
+	</li>
+	</ul>
+</div> -->
+<h1 style="text-align: center;">Material UI</h1>
+<hr>
+<h2 style="text-decoration: underline;">Card</h2>
+<mat-card>
+  <mat-card-content>Simple card</mat-card-content>
+</mat-card>
+
+<h2 style="text-decoration: underline;">Button Toggle</h2>
+<mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+  <mat-button-toggle value="bold">Bold</mat-button-toggle>
+  <mat-button-toggle value="italic">Italic</mat-button-toggle>
+  <mat-button-toggle value="underline">Underline</mat-button-toggle>
+</mat-button-toggle-group>
+
+<h2 style="text-decoration: underline;">Clips</h2>
+<mat-chip-listbox aria-label="Fish selection">
+  <mat-chip-option>One fish</mat-chip-option>
+  <mat-chip-option>Two fish</mat-chip-option>
+  <mat-chip-option color="accent" selected>Accent fish</mat-chip-option>
+  <mat-chip-option color="warn">Warn fish</mat-chip-option>
+</mat-chip-listbox>
+
+<h2 style="text-decoration: underline;">Input</h2>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Favorite food</mat-label>
+    <input matInput placeholder="Ex. Pizza" value="Sushi">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <mat-label>Leave a comment</mat-label>
+    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+  </mat-form-field>
+</form>
+
+<h2 style="text-decoration: underline;">Tab</h2>
+<mat-tab-group>
+  <mat-tab label="First"> Content 1 </mat-tab>
+  <mat-tab label="Second"> Content 2 </mat-tab>
+  <mat-tab label="Third"> Content 3 </mat-tab>
+</mat-tab-group>
